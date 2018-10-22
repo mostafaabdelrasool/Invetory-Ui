@@ -1,0 +1,8 @@
+.side-container {
+    position: absolute;
+    height: 90vh;
+  }
+  
+  .sidenav-content {
+    height: 100%;
+  }

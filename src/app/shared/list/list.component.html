@@ -1,0 +1,60 @@
+<table>
+    <thead>
+        <tr>
+            <th *ngFor="let col of keys">{{col}}</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of data">
+            <td *ngFor="let col of keys">
+                <st-editor
+                    [(data)]="row[col]"
+                    [isEdit]="row.isEdit"
+                    [type]="getCellType(col)"
+                ></st-editor>
+            </td>
+            <td>
+                <div *ngIf="!row.isEdit">
+                    <button
+                        mat-icon-button
+                        color="primary"
+                        (click)="changeRowStatus(row)"
+                    >
+                        <mat-icon aria-label="Example icon-button with a heart icon">edit</mat-icon>
+                    </button>
+                    <button
+                        mat-icon-button
+                        color="accent"
+                        (click)="changeRowStatus(row)"
+                    >
+                        <mat-icon aria-label="Example icon-button with a heart icon">delete</mat-icon>
+                    </button>
+                </div>
+                <div *ngIf="row.isEdit">
+                    <button
+                        mat-icon-button
+                        color="primary"
+                        (click)="changeRowStatus(row)"
+                    >
+                        <mat-icon aria-label>save</mat-icon>
+                    </button>
+                    <button
+                        mat-icon-button
+                        color="warn"
+                        (click)="changeRowStatus(row)"
+                    >
+                        <mat-icon aria-label>cancel</mat-icon>
+                    </button>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button
+    color="primary"
+    mat-button
+    (click)="addNewLine()"
+>
+    <mat-icon aria-label>add</mat-icon>
+</button>

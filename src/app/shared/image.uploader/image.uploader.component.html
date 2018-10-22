@@ -1,0 +1,14 @@
+<input
+style="display: none"
+type="file"
+(change)="onFileChanged($event)"
+#fileInput
+>
+<button
+mat-icon-button
+color="primary"
+(click)="fileInput.click()"
+>
+<mat-icon aria-label="image">image</mat-icon>
+</button>
+<img *ngIf="data && data!==''" [src]="data" class="st-image"/>

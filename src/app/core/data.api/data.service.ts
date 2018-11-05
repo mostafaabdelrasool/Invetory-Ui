@@ -8,13 +8,13 @@ import { HttpClient } from '@angular/common/http';
 export class DataService {
   url: string;
   constructor(private http: HttpClient) {
-    this.url = `${environment.apiUrl}/${this.url}`;
+    this.url = environment.apiUrl;
   }
   get() {
     return this.http.get(this.url);
   }
-  post() {
-
+  post(data) {
+    return this.http.post(this.url, data);
   }
 }
 

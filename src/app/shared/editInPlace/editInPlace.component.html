@@ -1,22 +1,22 @@
-<div *ngIf="isEdit">
+<div *ngIf="status===1">
     <mat-form-field *ngIf="type==='txt'">
         <input
             matInput
             placeholder="Type here"
-            [(ngModel)]="data"
+            [(ngModel)]="_tempData"
             name="name"
         >
     </mat-form-field>
     <st-image
-        [(data)]="data"
+        [(data)]="_tempData"
         *ngIf="type==='img'"
     ></st-image>
 </div>
-<div *ngIf="!isEdit">
+<div *ngIf="status!==1">
     <p *ngIf="type==='txt'">{{data}}</p>
     <img
         class="st-image"
         *ngIf="type==='img'"
-        [src]="data"
+        [src]="_tempData"
     >
 </div>

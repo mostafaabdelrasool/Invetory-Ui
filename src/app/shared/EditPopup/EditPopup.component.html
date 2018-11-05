@@ -1,0 +1,43 @@
+<div *ngFor="let item of fields">
+    <div [ngSwitch]="item.type">
+        <div *ngSwitchCase="select">
+            <mat-form-field>
+                <mat-select placeholder="Favorite food">
+                    <mat-option
+                        *ngFor="let data of dropDownsData[item.model]"
+                        [value]="data.value"
+                    >
+                        {{data.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div *ngSwitchDefault>
+            <mat-form-field>
+                <input
+                    matInput
+                    placeholder="{{item.placeholder}}"
+                    type="item.type"
+                    [(ngModel)]="data[item.model]"
+                    name="item.name"
+                >
+            </mat-form-field>
+        </div>
+    </div>
+
+</div>
+<div mat-dialog-actions>
+    <button
+        mat-button
+        (click)="onNoClick()"
+    >
+        No Thanks
+    </button>
+    <button
+        mat-button
+        [mat-dialog-close]="data"
+        cdkFocusInitial
+    >
+        Ok
+    </button>
+</div>

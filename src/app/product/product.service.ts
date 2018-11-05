@@ -7,7 +7,7 @@ import { DataService } from '../core/data.api/data.service';
 export class ProductService {
 
   constructor(public dataService: DataService) {
-    this.dataService.url += 'Product/'
+    this.dataService.url += 'api/Product'
   }
 
 }

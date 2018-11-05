@@ -4,19 +4,24 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 
 import { ProductModule } from './product/product.module';
-import { SharedModule } from './shared/shared.module';
-import { ProductRoutes } from './product/product.routing';
 import { RouterModule } from '@angular/router';
 import { CoreModule } from './core/core.module';
-
+import { AngularMaterialModule } from './angularMaterial/angularMaterial.module';
+import { environment } from 'src/environments/environment';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    BrowserModule,ProductModule,SharedModule,ProductRoutes,  RouterModule.forRoot([]),CoreModule
+    BrowserModule, ProductModule, RouterModule.forRoot([]), CoreModule, AngularMaterialModule,
+    StoreDevtoolsModule.instrument({
+      name: 'NgRx Book Store DevTools',
+      logOnly: environment.production,
+    }),
   ],
   providers: [],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -8,7 +8,7 @@ export enum ProductActionTypes {
 export class LoadProduct implements Action {
   readonly type = ProductActionTypes.LoadProduct;
 
-  constructor(public payload: Products) {}
+  constructor(public payload: Products[]) {}
 }
 
 export type ProductActionUnion = LoadProduct;

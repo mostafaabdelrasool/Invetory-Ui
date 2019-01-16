@@ -41,10 +41,11 @@ import {
 import { FormsModule } from '@angular/forms';
 @NgModule({
   imports: [
-    CommonModule, MatToolbarModule, MatSidenavModule, MatButtonModule, FormsModule,
+    CommonModule, MatToolbarModule, MatSidenavModule, MatButtonModule, FormsModule,MatSelectModule,
     MatListModule, MatIconModule, MatDividerModule, MatInputModule, MatDialogModule, NgxLayoutsModule
   ],
-  exports: [MatToolbarModule, MatSidenavModule,
-    MatButtonModule, MatListModule, MatIconModule, MatDividerModule, MatInputModule, MatDialogModule, NgxLayoutsModule, FormsModule]
+  exports: [MatToolbarModule, MatSidenavModule,MatSelectModule,
+    MatButtonModule, MatListModule, MatIconModule, MatDividerModule, MatInputModule, MatDialogModule,
+     NgxLayoutsModule, FormsModule]
 })
 export class AngularMaterialModule { }

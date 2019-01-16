@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CellStatus } from '../editInPlace/editInPlace.component';
 import { PopupFields } from '../EditPopup/popup.fields';
-import { EditpopupServiceService } from '../EditPopup/EditpopupService.service';
+import { EditpopupServiceService } from '../EditPopup/editPopup.service';
 
 @Component({
   selector: 'app-list',

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { EditPopupComponent } from './EditPopup.component';
+import { EditPopupComponent } from './editPopup.component';
 import { FormsModule } from '@angular/forms';
 import { AngularMaterialModule } from 'src/app/angularMaterial/angularMaterial.module';
 

@@ -3,9 +3,9 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { PopupFields, FieldType } from './popup.fields';
 
 @Component({
-  selector: 'app-EditPopup',
-  templateUrl: './EditPopup.component.html',
-  styleUrls: ['./EditPopup.component.css']
+  selector: 'app-editPopup',
+  templateUrl: './editPopup.component.html',
+  styleUrls: ['./editPopup.component.css']
 })
 export class EditPopupComponent implements OnInit {
   data = {};

@@ -1,7 +1,7 @@
 /* tslint:disable:no-unused-variable */
 
 import { TestBed, async, inject } from '@angular/core/testing';
-import { EditpopupServiceService } from './EditpopupService.service';
+import { EditpopupServiceService } from './editPopup.service';
 
 describe('Service: EditpopupService', () => {
   beforeEach(() => {

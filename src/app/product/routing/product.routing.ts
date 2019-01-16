@@ -1,5 +1,5 @@
 import { Routes, RouterModule } from '@angular/router';
-import { ProductComponent } from '../compOnent/product.component';
+import { ProductComponent } from '../component/product.component';
 
 const routes: Routes = [
      { path: 'product', component: ProductComponent },

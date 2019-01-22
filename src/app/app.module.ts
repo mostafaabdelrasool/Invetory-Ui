@@ -16,11 +16,13 @@ import { EffectsModule } from '@ngrx/effects';
     AppComponent
   ],
   imports: [
-    BrowserModule, ProductModule, RouterModule.forRoot([]), CoreModule, AngularMaterialModule,
+    BrowserModule, ProductModule, RouterModule.forRoot([]), CoreModule,
+    AngularMaterialModule,
     StoreDevtoolsModule.instrument({
-      name: 'NgRx Book Store DevTools',
-      logOnly: environment.production,
-    }),StoreModule.forRoot({}),
+      name: 'NgRx String Store DevTools',
+      maxAge: 25,
+    }),
+    StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
   ],
   providers: [],

@@ -16,17 +16,20 @@ export class EditPopupComponent implements OnInit {
   ngOnInit() {
     this.fields.forEach(x => {
       if (x.type === FieldType.select) {
-         this.getSelectData(x);
+        this.getSelectData(x);
       }
     });
   }
   getSelectData(x: PopupFields): any {
-     if (x.selectUrl) {
-       
-     }
+    if (x.selectUrl) {
+
+    }
   }
   onNoClick(): void {
     this.dialogRef.close();
+  }
+  onOkClick():void{
+    this.dialogRef.close(this.data)
   }
 
 

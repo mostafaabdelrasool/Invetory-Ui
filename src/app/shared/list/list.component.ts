@@ -14,11 +14,9 @@ export class ListComponent implements OnInit {
   @Input() deleteData: Function;
   @Input() updataData: Function;
   @Input() popupFileds: Array<PopupFields>;
-  @Input() headers: Array<string>;
   @Output() onSave: EventEmitter<any>;
   private _keys: Array<any>;
   constructor(private editpopupServiceService: EditpopupServiceService) {
-    this.headers = [];
     this._keys = [];
     this.onSave = new EventEmitter<any>();
   }
@@ -26,24 +24,23 @@ export class ListComponent implements OnInit {
     this.getDataKeys();
   }
   private getDataKeys() {
-    if (this.data.length > 0 && this.headers.length === 0) {
-      this.getObjectStructure(this.data[0])
+    if (this.popupFileds.length > 0 ) {
+      this.popupFileds.forEach(x => {
+        this._keys.push(x.model)
+      })
     } else {
-      this._keys = this.headers;
+     throw 'Popup fileds should not be null';
     }
-  }
-  private getObjectStructure(refObject: any) {
-    Object.keys(refObject).forEach(x => {
-      this._keys.push(x);
-    });
   }
   addNewLine() {
     this.editpopupServiceService.openDialog(this.popupFileds).subscribe(x => {
-      this.onSave.emit(x);
+      // this.onSave.emit(x);
+      this.data.push(x);
+      this.saveData.apply(this, [x])
     })
   }
-  changeRowStatus(row, cellStatus: CellStatus) {
-    row.status = cellStatus;
+  edit(row) {
+    row.status = CellStatus.Edit;
   }
   getCellType(cell: string): string {
     if (cell.search('img') !== -1 || cell.search('image') !== -1) {
@@ -53,9 +50,9 @@ export class ListComponent implements OnInit {
   }
   save(row) {
     if (this.saveData) {
-      this.saveData(row);
+      this.saveData.apply(this, [row])
     }
-    this.changeRowStatus(row, CellStatus.Save);
+    row.status = CellStatus.Save;
   }
   delete(row) {
     let index = this.data.findIndex(row);
@@ -65,6 +62,6 @@ export class ListComponent implements OnInit {
     }
   }
   cancel(row) {
-    this.changeRowStatus(row, CellStatus.Cancel);
+    row.status =CellStatus.Cancel;
   }
 }

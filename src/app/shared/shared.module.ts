@@ -12,9 +12,11 @@ import { AngularMaterialModule } from '../angularMaterial/angularMaterial.module
 
 @NgModule({
   imports: [
-    CommonModule, BrowserAnimationsModule,FormsModule,EditPopupModule,AngularMaterialModule
+    CommonModule, BrowserAnimationsModule,FormsModule
+    ,EditPopupModule,AngularMaterialModule
   ],
-  declarations: [ListComponent, EditInPlaceComponent, ImageUploaderComponent],
+  declarations: [ListComponent, EditInPlaceComponent,
+     ImageUploaderComponent],
   exports: [ListComponent]
 })
 export class SharedModule { }

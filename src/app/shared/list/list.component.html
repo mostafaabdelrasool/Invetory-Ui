@@ -8,7 +8,7 @@
 <table>
     <thead>
         <tr>
-            <th *ngFor="let col of _keys">{{col}}</th>
+            <th *ngFor="let col of popupFileds">{{col.headerName}}</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -26,7 +26,7 @@
                     <button
                         mat-icon-button
                         color="primary"
-                        (click)="changeRowStatus(row,1)"
+                        (click)="edit(row)"
                     >
                         <mat-icon aria-label="Example icon-button with a heart icon">edit</mat-icon>
                     </button>

@@ -7,6 +7,7 @@ import * as fromProduct from '../store/reducer/index';
 import { Observable } from 'rxjs';
 import * as fromProductSelector from '../store/selectors/product.selector';
 import { ProductSetting } from '../product.setting';
+import { LoadProduct, SaveProduct } from '../store/actions/product.action';
 
 @Component({
   selector: 'st-product',
@@ -15,12 +16,10 @@ import { ProductSetting } from '../product.setting';
 })
 export class ProductComponent implements OnInit {
   products: Array<Products>;
-  header: Array<string>;
   private _popupFileds: Array<PopupFields>;
   Product$: Observable<fromProduct.ProductState>;
   constructor(private productservice: ProductService, private store: Store<fromProduct.State>) {
     this.products = new Array<Products>();
-    this.header = ProductSetting.Header;
     this._popupFileds = [];
     this.Product$ = store.pipe(select(fromProductSelector.getProductsState));
     this._popupFileds = ProductSetting.PopupFileds;
@@ -28,9 +27,12 @@ export class ProductComponent implements OnInit {
 
   ngOnInit() {
   }
-  saveProduct(product) {
-    this.productservice.post(product).subscribe(x => {
-    })
+  saveProduct = (product: Products) => {
+    product.Id='ssasaa';
+    let p = new SaveProduct(product);
+    this.store.dispatch(p);
+    // this.productservice.post(product).subscribe(x => {
+    // })
   }
 
 }

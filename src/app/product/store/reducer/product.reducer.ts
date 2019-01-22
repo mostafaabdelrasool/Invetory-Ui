@@ -1,4 +1,4 @@
-import { LoadProduct, ProductActionTypes } from "../actions/product.action";
+import { LoadProduct, SaveProduct,ProductActionTypes, ProductActionUnion } from "../actions/product.action";
 import { Products } from "src/app/model";
 import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
 //import or declare state
@@ -13,13 +13,14 @@ export const adapter: EntityAdapter<Products> = createEntityAdapter<Products>({
 export const intialState: State = adapter.getInitialState({
     selectedProductId: null,
 });
-export function ProductReducer(state = intialState, action: LoadProduct) :State{
+export function ProductReducer(state = intialState, action:ProductActionUnion) :State{
     switch (action.type) {
         case ProductActionTypes.LoadProduct: {
-            //add your code
             return adapter.addMany(action.payload, state);
         }
-
+        case ProductActionTypes.SaveProduct: {
+            return adapter.addOne(action.payload, state);
+        }
         default:
             return state;
     }

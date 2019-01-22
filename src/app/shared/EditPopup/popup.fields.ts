@@ -5,7 +5,8 @@ export interface PopupFields {
     selectUrl?: string;
     name: string;
     width?: string;
-    placeholder?:string
+    placeholder?:string,
+    headerName:string
 }
 export enum FieldType {
     Txt = "Text", select = "Select", checkBox = "checkBox", RadioButton = "radio", Number = "number"

@@ -1,5 +1,5 @@
 <div *ngIf="status===1">
-    <mat-form-field *ngIf="type==='txt'">
+    <mat-form-field *ngIf="type!=='img'">
         <input
             matInput
             placeholder="Type here"
@@ -7,13 +7,14 @@
             name="name"
         >
     </mat-form-field>
+    
     <st-image
         [(data)]="_tempData"
         *ngIf="type==='img'"
     ></st-image>
 </div>
 <div *ngIf="status!==1">
-    <p *ngIf="type==='txt'">{{data}}</p>
+    <p *ngIf="type!=='img'">{{data}}</p>
     <img
         class="st-image"
         *ngIf="type==='img'"

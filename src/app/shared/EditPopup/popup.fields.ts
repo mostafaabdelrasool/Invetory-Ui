@@ -1,5 +1,5 @@
 
-export interface PopupFields {
+export interface TableSetting {
     model: string;
     type: FieldType;
     selectUrl?: string;
@@ -9,5 +9,10 @@ export interface PopupFields {
     headerName:string
 }
 export enum FieldType {
-    Txt = "Text", select = "Select", checkBox = "checkBox", RadioButton = "radio", Number = "number"
+    Txt = "Text",
+    select = "Select",
+    checkBox = "checkBox",
+    RadioButton = "radio",
+    Number = "number",
+    Image = "img"
 }

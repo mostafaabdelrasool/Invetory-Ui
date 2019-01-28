@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CellStatus } from '../editInPlace/editInPlace.component';
-import { PopupFields } from '../EditPopup/popup.fields';
+import { TableSetting } from '../EditPopup/popup.fields';
 import { EditpopupServiceService } from '../EditPopup/editPopup.service';
 
 @Component({
@@ -13,7 +13,7 @@ export class ListComponent implements OnInit {
   @Input() saveData: Function;
   @Input() deleteData: Function;
   @Input() updataData: Function;
-  @Input() popupFileds: Array<PopupFields>;
+  @Input() tableSetting: Array<TableSetting>;
   @Output() onSave: EventEmitter<any>;
   private _keys: Array<any>;
   constructor(private editpopupServiceService: EditpopupServiceService) {
@@ -21,32 +21,24 @@ export class ListComponent implements OnInit {
     this.onSave = new EventEmitter<any>();
   }
   ngOnInit() {
-    this.getDataKeys();
+    this.validateTableSettings();
   }
-  private getDataKeys() {
-    if (this.popupFileds.length > 0 ) {
-      this.popupFileds.forEach(x => {
-        this._keys.push(x.model)
-      })
-    } else {
+  private validateTableSettings() {
+    if (this.tableSetting.length === 0 ) {
      throw 'Popup fileds should not be null';
     }
   }
   addNewLine() {
-    this.editpopupServiceService.openDialog(this.popupFileds).subscribe(x => {
+    this.editpopupServiceService.openDialog(this.tableSetting).subscribe(x => {
       // this.onSave.emit(x);
-      this.data.push(x);
-      this.saveData.apply(this, [x])
+      if (x) {
+        this.data.push(x);
+        this.saveData.apply(this, [x]);
+      }
     })
   }
   edit(row) {
     row.status = CellStatus.Edit;
-  }
-  getCellType(cell: string): string {
-    if (cell.search('img') !== -1 || cell.search('image') !== -1) {
-      return 'img'
-    }
-    return 'txt';
   }
   save(row) {
     if (this.saveData) {

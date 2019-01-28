@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { PopupFields, FieldType } from './popup.fields';
+import { TableSetting, FieldType } from './popup.fields';
 
 @Component({
   selector: 'app-editPopup',
@@ -11,7 +11,7 @@ export class EditPopupComponent implements OnInit {
   data = {};
   dropDownsData = {};
   constructor(public dialogRef: MatDialogRef<EditPopupComponent>,
-    @Inject(MAT_DIALOG_DATA) public fields: Array<PopupFields>) { }
+    @Inject(MAT_DIALOG_DATA) public fields: Array<TableSetting>) { }
 
   ngOnInit() {
     this.fields.forEach(x => {
@@ -20,7 +20,7 @@ export class EditPopupComponent implements OnInit {
       }
     });
   }
-  getSelectData(x: PopupFields): any {
+  getSelectData(x: TableSetting): any {
     if (x.selectUrl) {
 
     }

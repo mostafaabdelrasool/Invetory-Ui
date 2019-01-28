@@ -1,10 +1,16 @@
-import { FieldType, PopupFields } from "../shared/EditPopup/popup.fields";
+import { FieldType, TableSetting } from "../shared/EditPopup/popup.fields";
 
 export class ProductSetting {
-    public static PopupFileds: Array<PopupFields> = [
-        {headerName:'productName', name: 'productName', type: FieldType.Txt, model: 'productName', placeholder: "Product Name" },
-        {headerName:'UnitPrice', name: 'UnitPrice', type: FieldType.Number, model: 'unitPrice', placeholder: "Unit price" },
-        {headerName:'quantityPerUnit', name: 'quantityPerUnit', type: FieldType.Number, model: 'quantityPerUnit', placeholder: "Quantity Per Unit" },
-        {headerName:'UnitsInStock', name: 'UnitsInStock', type: FieldType.Number, model: 'unitsInStock', placeholder: "Units In Stock" },
-        {headerName:'Discontinued', name: 'Discontinued', type: FieldType.checkBox, model: 'discontinued', placeholder: "Discontinued" }];
+    public static TableSetting: Array<TableSetting> = [
+        { headerName: 'Product Name', name: 'productName', type: FieldType.Txt, model: 'productName', placeholder: "Product Name" },
+        { headerName: 'Unit Price', name: 'UnitPrice', type: FieldType.Number, model: 'unitPrice', placeholder: "Unit price" },
+        { headerName: 'Quantity Per Unit', name: 'quantityPerUnit', type: FieldType.Number, model: 'quantityPerUnit', placeholder: "Quantity Per Unit" },
+        { headerName: 'Units In Stock', name: 'UnitsInStock', type: FieldType.Number, model: 'unitsInStock', placeholder: "Units In Stock" },
+        {
+            headerName: 'Discontinued', name: 'Discontinued', type: FieldType.checkBox,
+            model: 'discontinued', placeholder: "Discontinued"
+        }, {
+            headerName: 'Image', name: 'img', type: FieldType.Image,
+            model: 'img', placeholder: "image"
+        }];
 }

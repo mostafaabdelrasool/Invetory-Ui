@@ -7,16 +7,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EditInPlaceComponent } from './editInPlace/editInPlace.component';
 import { ImageUploaderComponent } from './image.uploader/image.uploader.component';
 import { FormsModule } from '@angular/forms';
-import { EditPopupModule } from './EditPopup/editPopup.module';
 import { AngularMaterialModule } from '../angularMaterial/angularMaterial.module';
+import { EditPopupComponent } from './EditPopup/EditPopup.component';
 
 @NgModule({
   imports: [
     CommonModule, BrowserAnimationsModule,FormsModule
-    ,EditPopupModule,AngularMaterialModule
+    ,AngularMaterialModule
   ],
   declarations: [ListComponent, EditInPlaceComponent,
-     ImageUploaderComponent],
-  exports: [ListComponent]
+     ImageUploaderComponent,EditPopupComponent],
+  exports: [ListComponent,ImageUploaderComponent],
+  entryComponents:[EditPopupComponent]
 })
 export class SharedModule { }

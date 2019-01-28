@@ -5,11 +5,12 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class ProductService extends DataService{
+export class ProductService extends DataService {
+  serviceApi: string;
 
-  constructor(http:HttpClient) 
-   {
+  constructor(http: HttpClient) {
     super(http)
-    this.url += 'api/Product'
+     this.serviceApi= 'api/Product';
   }
+ 
 }

@@ -8,17 +8,17 @@
 <table>
     <thead>
         <tr>
-            <th *ngFor="let col of popupFileds">{{col.headerName}}</th>
+            <th *ngFor="let col of tableSetting">{{col.headerName}}</th>
             <th>Actions</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let row of data">
-            <td *ngFor="let col of _keys">
+            <td *ngFor="let col of tableSetting">
                 <st-editor
-                    [(data)]="row[col]"
+                    [(data)]="row[col.model]"
                     [status]="row.status||4"
-                    [type]="getCellType(col)"
+                    [type]="col.type"
                 ></st-editor>
             </td>
             <td>

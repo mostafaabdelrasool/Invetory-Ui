@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { EditPopupComponent } from './EditPopup.component';
-import { PopupFields } from './popup.fields';
+import { TableSetting } from './popup.fields';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 export class EditpopupServiceService {
   constructor(public dialog: MatDialog) {
   }
-  openDialog( fields: Array<PopupFields>): Observable<any> {
+  openDialog( fields: Array<TableSetting>): Observable<any> {
     if (!fields || fields.length === 0) {
       return;
     }

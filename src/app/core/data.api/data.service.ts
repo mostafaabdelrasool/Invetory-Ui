@@ -6,15 +6,15 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class DataService {
-  url: string;
+  private _url: string;
   constructor(private http: HttpClient) {
-    this.url = environment.apiUrl;
+    this._url = environment.apiUrl;
   }
-  get() {
-    return this.http.get(this.url);
+  get(serviceApi) {
+    return this.http.get(this._url+serviceApi);
   }
-  post(data) {
-    return this.http.post(this.url, data);
+  post(serviceApi:string,data) {
+    return this.http.post(this._url+serviceApi, data);
   }
 }
 

@@ -42,10 +42,10 @@ import { FormsModule } from '@angular/forms';
 @NgModule({
   imports: [
     CommonModule, MatToolbarModule, MatSidenavModule, MatButtonModule, FormsModule,MatSelectModule,
-    MatListModule, MatIconModule, MatDividerModule, MatInputModule, MatDialogModule, NgxLayoutsModule
+    MatListModule, MatIconModule, MatDividerModule, MatInputModule, MatDialogModule, NgxLayoutsModule,MatCheckboxModule
   ],
   exports: [MatToolbarModule, MatSidenavModule,MatSelectModule,
     MatButtonModule, MatListModule, MatIconModule, MatDividerModule, MatInputModule, MatDialogModule,
-     NgxLayoutsModule, FormsModule]
+     NgxLayoutsModule, FormsModule,MatCheckboxModule]
 })
 export class AngularMaterialModule { }

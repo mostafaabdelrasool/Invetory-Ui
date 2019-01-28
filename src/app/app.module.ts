@@ -18,12 +18,13 @@ import { EffectsModule } from '@ngrx/effects';
   imports: [
     BrowserModule, ProductModule, RouterModule.forRoot([]), CoreModule,
     AngularMaterialModule,
+    StoreModule.forRoot({}),
+    EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({
       maxAge: 5,
       name:"String Store Redux"
     }),
-    StoreModule.forRoot({}),
-    EffectsModule.forRoot([]),
+  
   ],
   providers: [],
 

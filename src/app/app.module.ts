@@ -19,8 +19,8 @@ import { EffectsModule } from '@ngrx/effects';
     BrowserModule, ProductModule, RouterModule.forRoot([]), CoreModule,
     AngularMaterialModule,
     StoreDevtoolsModule.instrument({
-      name: 'NgRx String Store DevTools',
-      maxAge: 25,
+      maxAge: 5,
+      name:"String Store Redux"
     }),
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),

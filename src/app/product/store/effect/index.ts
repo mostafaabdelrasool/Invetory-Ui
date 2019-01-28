@@ -1,0 +1,1 @@
+export { ProductEffects } from "./product.effect";

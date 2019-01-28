@@ -3,7 +3,9 @@ import { Products } from 'src/app/model/index';
 
 export enum ProductActionTypes {
   LoadProduct = 'Load Products',
-  SaveProduct = 'Save Products'
+  SaveProduct = 'Save Products',
+  SaveProductSuccess = 'Save Products success',
+  SaveProductFail = "Save Product Fail"
 }
 
 export class LoadProduct implements Action {
@@ -16,5 +18,14 @@ export class SaveProduct implements Action {
 
   constructor(public payload: Products) { }
 }
+export class SaveProductSuccess implements Action {
+  readonly type = ProductActionTypes.SaveProductSuccess;
 
-export type ProductActionUnion = LoadProduct | SaveProduct;
+  constructor(public payload: Products) { }
+}
+export class SaveProductFail implements Action {
+  readonly type = ProductActionTypes.SaveProductFail;
+
+  constructor(public payload: Products) { }
+}
+export type ProductActionUnion = LoadProduct | SaveProduct | SaveProductSuccess|SaveProductFail;

@@ -22,7 +22,7 @@ export class ProductComponent implements OnInit {
   constructor(private productservice: ProductService, private store: Store<fromProduct.State>) {
     this.products = new Array<Products>();
     this._tableSetting = [];
-    this.Product$ = store.pipe(select(fromProductSelector.getProductsState));
+    // this.Product$ = store.pipe(select(fromProductSelector.getProductsState));
     this._tableSetting = ProductSetting.TableSetting;
     this.serviceApi=this.productservice.serviceApi;
   }
@@ -30,12 +30,8 @@ export class ProductComponent implements OnInit {
   ngOnInit() {
   }
   saveProduct = (product: Products) => {
-    product.Id='ssasaa';
     let p = new SaveProduct(product);
     this.store.dispatch(p);
-    this.productservice.post(this.serviceApi,product).subscribe(x => {
-    });
-   
   }
 
 }

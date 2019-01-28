@@ -7,7 +7,6 @@ import { ProductModule } from './product/product.module';
 import { RouterModule } from '@angular/router';
 import { CoreModule } from './core/core.module';
 import { AngularMaterialModule } from './angularMaterial/angularMaterial.module';
-import { environment } from 'src/environments/environment';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';

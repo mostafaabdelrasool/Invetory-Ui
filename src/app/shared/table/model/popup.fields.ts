@@ -7,7 +7,7 @@ export interface TableSetting {
     width?: string;
     placeholder?:string,
     headerName:string,
-    displayValue?:string,
+    displayValue?:Array<string>,
     selectSetting?:SelectSetting
 }
 export enum FieldType {

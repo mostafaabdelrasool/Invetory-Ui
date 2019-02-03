@@ -37,7 +37,9 @@ export class ListComponent implements OnInit {
       // this.onSave.emit(x);
       if (x) {
         this.data.push(x);
-        this.saveData.apply(this, [x]);
+        if (this.saveData) {
+          this.saveData.apply(this, [x]);
+        }
       }
     })
   }
@@ -45,13 +47,20 @@ export class ListComponent implements OnInit {
     this.editpopupServiceService.openDialog(this.tableSetting, row).subscribe(x => {
       // this.onSave.emit(x);
       if (x) {
-        row = x;
-        this.updateData.apply(this, [x]);
+        let index = this.data.findIndex(x => {
+          return x === row;
+        });
+        this.data[index] = x;
+        if (this.updateData) {
+          this.updateData.apply(this, [x]);
+        }
       }
     })
   }
   delete(row) {
-    let index = this.data.findIndex(row);
+    let index = this.data.findIndex(x => {
+      return x === row;
+    });
     this.data.splice(index, 1);
     if (this.deleteData) {
       this.deleteData(row)

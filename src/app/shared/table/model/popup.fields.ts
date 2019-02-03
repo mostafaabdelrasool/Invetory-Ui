@@ -6,7 +6,9 @@ export interface TableSetting {
     name: string;
     width?: string;
     placeholder?:string,
-    headerName:string
+    headerName:string,
+    displayValue?:string,
+    selectSetting?:SelectSetting
 }
 export enum FieldType {
     Txt = "Text",
@@ -15,4 +17,10 @@ export enum FieldType {
     RadioButton = "radio",
     Number = "number",
     Image = "img"
+}
+export class SelectSetting{
+    apiUrl?:string ;
+    data?:Array<any>;
+    dataModel?:string;
+    dataViewModel?:string
 }

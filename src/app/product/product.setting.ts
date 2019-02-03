@@ -1,4 +1,4 @@
-import { FieldType, TableSetting } from "../shared/model/popup.fields";
+import { TableSetting, FieldType } from "../shared/table/model";
 
 export class ProductSetting {
     public static TableSetting: Array<TableSetting> = [
@@ -12,5 +12,12 @@ export class ProductSetting {
         }, {
             headerName: 'Image', name: 'img', type: FieldType.Image,
             model: 'img', placeholder: "image"
-        }];
+        }, {
+            headerName: 'Category', name: 'Category', type: FieldType.select,
+            model: 'categoryId', placeholder: "Category", displayValue: 'categoryName',
+            selectSetting: {
+                apiUrl: 'api/', data: [], dataModel: 'id', dataViewModel: 'categoryName'
+            }
+
+        },];
 }

@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../service/product.service';
 import { Products } from '../../model/index';
-import { TableSetting } from '../../shared/model/popup.fields';
 import { Store, select } from '@ngrx/store';
 import * as fromProduct from '../store/reducer/index';
 import { Observable } from 'rxjs';
 import * as fromProductSelector from '../store/selectors/product.selector';
 import { ProductSetting } from '../product.setting';
 import { SaveProduct } from '../store/actions/product.action';
+import { TableSetting } from 'src/app/shared/table/model';
 
 @Component({
   selector: 'st-product',

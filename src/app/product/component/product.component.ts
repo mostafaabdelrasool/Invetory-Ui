@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../service/product.service';
 import { Products } from '../../model/index';
-import { TableSetting } from '../../shared/EditPopup/popup.fields';
+import { TableSetting } from '../../shared/model/popup.fields';
 import { Store, select } from '@ngrx/store';
 import * as fromProduct from '../store/reducer/index';
 import { Observable } from 'rxjs';
@@ -33,5 +33,8 @@ export class ProductComponent implements OnInit {
     let p = new SaveProduct(product);
     this.store.dispatch(p);
   }
-
+  updateProduct=(product: Products) => {
+    let p = new SaveProduct(product);
+    this.store.dispatch(p);
+  }
 }

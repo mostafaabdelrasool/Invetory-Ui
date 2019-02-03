@@ -1,4 +1,4 @@
-import { FieldType, TableSetting } from "../shared/EditPopup/popup.fields";
+import { FieldType, TableSetting } from "../shared/model/popup.fields";
 
 export class ProductSetting {
     public static TableSetting: Array<TableSetting> = [

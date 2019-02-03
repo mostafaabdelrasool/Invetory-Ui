@@ -14,15 +14,11 @@
     </thead>
     <tbody>
         <tr *ngFor="let row of data">
-            <td *ngFor="let col of tableSetting">
-                <st-editor
-                    [(data)]="row[col.model]"
-                    [status]="row.status||4"
-                    [type]="col.type"
-                ></st-editor>
+            <td *ngFor="let setting of tableSetting">
+               {{row[setting.model]}}
             </td>
             <td>
-                <div *ngIf="row.status!==1">
+                <div>
                     <button
                         mat-icon-button
                         color="primary"
@@ -36,22 +32,6 @@
                         (click)="delete(row)"
                     >
                         <mat-icon aria-label="Example icon-button with a heart icon">delete</mat-icon>
-                    </button>
-                </div>
-                <div *ngIf="row.status===1">
-                    <button
-                        mat-icon-button
-                        color="primary"
-                        (click)="save(row)"
-                    >
-                        <mat-icon aria-label>save</mat-icon>
-                    </button>
-                    <button
-                        mat-icon-button
-                        color="warn"
-                        (click)="cancel(row)"
-                    >
-                        <mat-icon aria-label>cancel</mat-icon>
                     </button>
                 </div>
             </td>

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { CellStatus } from '../editInPlace/editInPlace.component';
-import { TableSetting } from '../EditPopup/popup.fields';
-import { EditpopupServiceService } from '../EditPopup/editPopup.service';
+import { TableSetting } from '../model/popup.fields';
+import { EditpopupService } from '../editPopup/edit.Popup.service';
+import { PopupSetting } from '../model/popup.setting';
 
 @Component({
   selector: 'app-list',
@@ -12,23 +12,27 @@ export class ListComponent implements OnInit {
   @Input() data: Array<any>;
   @Input() saveData: Function;
   @Input() deleteData: Function;
-  @Input() updataData: Function;
+  @Input() updateData: Function;
   @Input() tableSetting: Array<TableSetting>;
   @Output() onSave: EventEmitter<any>;
   private _keys: Array<any>;
-  constructor(private editpopupServiceService: EditpopupServiceService) {
+  popupSetting: PopupSetting;
+  constructor(private editpopupServiceService: EditpopupService) {
     this._keys = [];
     this.onSave = new EventEmitter<any>();
+    this.popupSetting = new PopupSetting();
+    this.popupSetting.fields = this.tableSetting;
   }
   ngOnInit() {
     this.validateTableSettings();
   }
   private validateTableSettings() {
-    if (this.tableSetting.length === 0 ) {
-     throw 'Popup fileds should not be null';
+    if (this.tableSetting.length === 0) {
+      throw 'Popup fileds should not be null';
     }
   }
   addNewLine() {
+
     this.editpopupServiceService.openDialog(this.tableSetting).subscribe(x => {
       // this.onSave.emit(x);
       if (x) {
@@ -38,13 +42,13 @@ export class ListComponent implements OnInit {
     })
   }
   edit(row) {
-    row.status = CellStatus.Edit;
-  }
-  save(row) {
-    if (this.saveData) {
-      this.saveData.apply(this, [row])
-    }
-    row.status = CellStatus.Save;
+    this.editpopupServiceService.openDialog(this.tableSetting, row).subscribe(x => {
+      // this.onSave.emit(x);
+      if (x) {
+        row = x;
+        this.updateData.apply(this, [x]);
+      }
+    })
   }
   delete(row) {
     let index = this.data.findIndex(row);
@@ -52,8 +56,5 @@ export class ListComponent implements OnInit {
     if (this.deleteData) {
       this.deleteData(row)
     }
-  }
-  cancel(row) {
-    row.status =CellStatus.Cancel;
   }
 }

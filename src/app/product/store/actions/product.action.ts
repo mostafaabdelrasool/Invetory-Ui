@@ -5,7 +5,9 @@ export enum ProductActionTypes {
   LoadProduct = 'Load Products',
   SaveProduct = 'Save Products',
   SaveProductSuccess = 'Save Products success',
-  SaveProductFail = "Save Product Fail"
+  SaveProductFail = "Save Product Fail",
+  UpdateProduct = "UpdateProduct",
+  UpdateProductSuccess = "UpdateProductSuccess"
 }
 
 export class LoadProduct implements Action {
@@ -20,6 +22,16 @@ export class SaveProduct implements Action {
 }
 export class SaveProductSuccess implements Action {
   readonly type = ProductActionTypes.SaveProductSuccess;
+
+  constructor(public payload: Products) { }
+}
+export class UpdateProduct implements Action {
+  readonly type = ProductActionTypes.UpdateProduct;
+
+  constructor(public payload: Products) { }
+}
+export class UpdateProductSuccess implements Action {
+  readonly type = ProductActionTypes.UpdateProductSuccess;
 
   constructor(public payload: Products) { }
 }

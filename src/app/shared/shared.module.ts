@@ -8,7 +8,7 @@ import { EditInPlaceComponent } from './editInPlace/editInPlace.component';
 import { ImageUploaderComponent } from './image.uploader/image.uploader.component';
 import { FormsModule } from '@angular/forms';
 import { AngularMaterialModule } from '../angularMaterial/angularMaterial.module';
-import { EditPopupComponent } from './EditPopup/EditPopup.component';
+import { EditPopupComponent } from './editPopup/edit.popup.component';
 
 @NgModule({
   imports: [

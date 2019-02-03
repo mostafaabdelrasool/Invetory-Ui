@@ -1,16 +1,16 @@
 /* tslint:disable:no-unused-variable */
 
 import { TestBed, async, inject } from '@angular/core/testing';
-import { EditpopupServiceService } from './editPopup.service';
+import { EditpopupService } from './edit.Popup.service';
 
 describe('Service: EditpopupService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [EditpopupServiceService]
+      providers: [EditpopupService]
     });
   });
 
-  it('should ...', inject([EditpopupServiceService], (service: EditpopupServiceService) => {
+  it('should ...', inject([EditpopupService], (service: EditpopupService) => {
     expect(service).toBeTruthy();
   }));
 });

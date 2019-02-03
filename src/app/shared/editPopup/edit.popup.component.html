@@ -1,4 +1,4 @@
-<div *ngFor="let item of fields">
+<div *ngFor="let item of setting.fields">
     <div [ngSwitch]="item.type">
         <div *ngSwitchCase="'select'">
             <mat-form-field>

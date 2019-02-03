@@ -10,12 +10,13 @@ import { AngularMaterialModule } from './angularMaterial/angularMaterial.module'
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
+import { CategoryModule } from './category/category.module';
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    BrowserModule, ProductModule, RouterModule.forRoot([]), CoreModule,
+    BrowserModule, ProductModule,CategoryModule, RouterModule.forRoot([]), CoreModule,
     AngularMaterialModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
@@ -23,7 +24,6 @@ import { EffectsModule } from '@ngrx/effects';
       maxAge: 5,
       name:"String Store Redux"
     }),
-  
   ],
   providers: [],
 

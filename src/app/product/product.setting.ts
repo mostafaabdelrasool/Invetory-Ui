@@ -16,7 +16,8 @@ export class ProductSetting {
             headerName: 'Category', name: 'Category', type: FieldType.select,
             model: 'categoryId', placeholder: "Category", displayValue: 'categoryName',
             selectSetting: {
-                apiUrl: 'api/', data: [], dataModel: 'id', dataViewModel: 'categoryName'
+                apiUrl: 'api/Product', data: [], dataModel: 'id', dataViewModel: 'categoryName',
+                cashingObjectName:'categories'
             }
 
         },];

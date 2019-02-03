@@ -12,7 +12,7 @@ export interface TableSetting {
 }
 export enum FieldType {
     Txt = "Text",
-    select = "Select",
+    select = "select",
     checkBox = "checkBox",
     RadioButton = "radio",
     Number = "number",
@@ -22,5 +22,6 @@ export class SelectSetting{
     apiUrl?:string ;
     data?:Array<any>;
     dataModel?:string;
-    dataViewModel?:string
+    dataViewModel?:string;
+    cashingObjectName?:string;
 }

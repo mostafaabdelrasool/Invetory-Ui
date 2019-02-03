@@ -3,7 +3,7 @@
         <div [ngSwitch]="item.type">
             <div *ngSwitchCase="'select'">
                 <mat-form-field>
-                    <mat-select placeholder="Favorite food" [(ngModel)]="item.model">
+                    <mat-select placeholder="{{item.placeholder}}" [(ngModel)]="item.model">
                         <mat-option
                             *ngFor="let data of item.selectSetting.data"
                             [value]="data[item.selectSetting.dataModel]"
@@ -14,7 +14,7 @@
                 </mat-form-field>
             </div>
             <div *ngSwitchCase="'img'">
-                <st-image [(data)]="_tempData"></st-image>
+                <st-image [(data)]="data[item.model]"></st-image>
             </div>
             <div *ngSwitchCase="'checkBox'">
                 <mat-checkbox [(ngModel)]="data[item.model]">{{item.placeholder}}</mat-checkbox>

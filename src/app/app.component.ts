@@ -9,6 +9,8 @@ import { getTreeControlFunctionsMissingError } from '@angular/cdk/tree';
 export class AppComponent {
   routes = [];
   constructor() {
-    this.routes.push({ name: 'Product', routeUrl: 'product', icon: 'thumb-up' }, { name: 'Category', routeUrl: 'category' })
+    this.routes.push(
+     { name: 'Product', routeUrl: 'product', icon: 'thumb-up' },
+     { name: 'Category', routeUrl: 'category' })
   }
 }

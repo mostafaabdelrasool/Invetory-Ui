@@ -13,10 +13,10 @@
                     </mat-select>
                 </mat-form-field>
             </div>
-            <div *ngSwitchCase="'img'">
-                <st-image [(data)]="data[item.model]"></st-image>
+            <div *ngSwitchCase="'img'" class="padding-4">
+                <st-image [(data)]="data[item.model]" class="item-image-edit"></st-image>
             </div>
-            <div *ngSwitchCase="'checkBox'">
+            <div *ngSwitchCase="'checkBox'" class="padding-4 my-2">
                 <mat-checkbox [(ngModel)]="data[item.model]">{{item.placeholder}}</mat-checkbox>
             </div>
             <div *ngSwitchDefault>
@@ -37,16 +37,17 @@
 
 <div mat-dialog-actions>
     <button
-        mat-button
+    mat-stroked-button color="warn"
         (click)="onNoClick()"
     >
         No Thanks
     </button>
     <button
-        mat-button
+    mat-stroked-button color="primary"
         [mat-dialog-close]="data"
         cdkFocusInitial
         (click)="onOkClick()"
+        class="edit-btn"
     >
         Ok
     </button>

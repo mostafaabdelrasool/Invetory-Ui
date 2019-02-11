@@ -5,10 +5,12 @@ type="file"
 #fileInput
 >
 <button
-mat-icon-button
+mat-raised-button
 color="primary"
 (click)="fileInput.click()"
 >
 <mat-icon aria-label="image">image</mat-icon>
+
+Upload image
 </button>
-<img *ngIf="data && data!==''" [src]="data" class="st-image"/>
+<img *ngIf="data && data!==''" [src]="data" class="st-image item-image"/>

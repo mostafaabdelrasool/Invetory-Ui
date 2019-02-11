@@ -1,11 +1,16 @@
+<div class="container-fluid">
 <button
     color="primary"
-    mat-button
+    mat-raised-button
     (click)="addNewLine()"
+    class="float-right add-btn" 
 >
     <mat-icon aria-label>add</mat-icon>
 </button>
-<table>
+<mat-form-field class="filter">
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+<table class="table table-striped">
     <thead>
         <tr>
             <th *ngFor="let col of tableSetting">{{col.headerName}}</th>
@@ -17,7 +22,7 @@
             <td *ngFor="let setting of tableSetting">
                 <p *ngIf="setting.type!=='img';else img">{{row[setting.model]}}</p>
                 <ng-template #img>
-                    <img class="st-image" [src]="row[setting.model]"/>
+                    <img class="st-image item-image" [src]="row[setting.model]"/>
                 </ng-template>
             </td>
             <td>
@@ -41,3 +46,4 @@
         </tr>
     </tbody>
 </table>
+</div>

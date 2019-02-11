@@ -5,7 +5,9 @@
             mat-button
             (click)="drawer.toggle()"
         >
-            Toggle sidenav
+        <mat-icon>
+            menu
+        </mat-icon>
         </button>
     </mat-toolbar-row>
 </mat-toolbar>
@@ -17,17 +19,12 @@
         #drawer
         mode="side"
     >
-        <button
-            mat-raised-button
-            (click)="drawer.toggle()"
-        >
-            Toggle
-        </button>
+        
         <div class="sidenav-content">
             <mat-list>
-                <mat-list-item *ngFor="let route of routes" routerLink="{{route.routeUrl}}">
+                <mat-list-item *ngFor="let route of routes"  class="sidbar-list-item" routerLink="{{route.routeUrl}}">
                     <mat-icon svgIcon="{{route.icon}}"></mat-icon>
-                    <h4 mat-line>{{route.name}}</h4>
+                    <h4  mat-line>{{route.name}}</h4>
                     <mat-divider></mat-divider>
                 </mat-list-item>
             </mat-list>
@@ -35,6 +32,6 @@
     </mat-drawer>
 
 </mat-drawer-container>
-<div style="height: 98vh">
+<div style="height: 90vh">
     <router-outlet></router-outlet>
 </div>

@@ -3,7 +3,7 @@ import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation } fro
 @Component({
   selector: 'st-image',
   templateUrl: './image.uploader.component.html',
-  styleUrls: ['./image.uploader.component.css'],
+  styleUrls: ['./image.uploader.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class ImageUploaderComponent implements OnInit {

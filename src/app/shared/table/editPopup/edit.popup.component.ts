@@ -6,7 +6,7 @@ import { SelectSetting } from '../model/popup.fields';
 @Component({
   selector: 'app-editPopup',
   templateUrl: './edit.popup.component.html',
-  styleUrls: ['./edit.popup.component.css'],
+  styleUrls: ['./edit.popup.component.scss'],
   encapsulation:ViewEncapsulation.None
 })
 export class EditPopupComponent implements OnInit {

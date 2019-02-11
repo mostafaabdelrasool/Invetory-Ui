@@ -11,9 +11,11 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { CategoryModule } from './category/category.module';
+import { TestScssComponent } from './test-scss/test-scss.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TestScssComponent
   ],
   imports: [
     BrowserModule, ProductModule,CategoryModule, RouterModule.forRoot([]), CoreModule,

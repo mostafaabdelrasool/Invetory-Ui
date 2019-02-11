@@ -3,7 +3,7 @@ import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation, Simp
 @Component({
   selector: 'st-editor',
   templateUrl: './editInPlace.component.html',
-  styleUrls: ['./editInPlace.component.css'],
+  styleUrls: ['./editInPlace.component.scss'],
   encapsulation: ViewEncapsulation.None
 
 })

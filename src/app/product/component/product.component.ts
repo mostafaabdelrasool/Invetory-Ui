@@ -12,7 +12,7 @@ import { TableSetting } from 'src/app/shared/table/model';
 @Component({
   selector: 'st-product',
   templateUrl: './product.component.html',
-  styleUrls: ['./product.component.css']
+  styleUrls: ['./product.component.scss']
 })
 export class ProductComponent implements OnInit {
   products: Array<Products>;

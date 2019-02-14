@@ -11,6 +11,8 @@ export class AppComponent {
   constructor() {
     this.routes.push(
      { name: 'Product', routeUrl: 'product', icon: 'thumb-up' },
-     { name: 'Category', routeUrl: 'category' })
+     { name: 'Category', routeUrl: 'category' },
+     {name: 'Create Orders', routeUrl:'add-order'}, 
+     { name: 'Orders', routeUrl: 'orders'})
   }
 }

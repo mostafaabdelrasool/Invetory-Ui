@@ -1,6 +1,6 @@
 .side-container {
-    position: absolute;
-    height: 90vh;
+    position: relative;
+     height: 90vh;
     .sidbar-list-item {
       &:hover{
         cursor: pointer;
@@ -9,10 +9,10 @@
     
   }
   
-  .sidenav-content {
-   
+  .sidenav-content{  
+     
   }
   .st-image{
     width: 40px;
-    height: 40px
+    height: 40px;
 }

@@ -1,5 +1,5 @@
-export interface Categories {
-    Id: string;
+export interface Categories{
+    categoryID: string;
     categoryName: string;
     description: string;
     picture: any[];

@@ -12,9 +12,9 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ##Environment technologies
 
-[angular-material-icon] (https://material.io/tools/icons/?icon=menu&style=baseline)
+[angular-material-icon](https://material.io/tools/icons/?icon=menu&style=baseline)
 
-[northwind-db] (https://github.com/graphql-compose/graphql-compose-examples/tree/master/examples/northwind/data/json)
+[northwind-db](https://github.com/graphql-compose/graphql-compose-examples/tree/master/examples/northwind/data/json)
 
 
 ## Build

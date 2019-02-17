@@ -1,6 +1,6 @@
-import { TableSetting } from "./popup.fields";
+import { PopupFields } from "./popup.fields";
 
 export class PopupSetting{
   data?:any;
-  fields:Array<TableSetting>;
+  fields:Array<PopupFields>;
 }

@@ -1,9 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { TableSetting } from '../model/popup.fields';
+import { TableSetting, PopupFields } from '../model/popup.fields';
 import { EditpopupService } from '../editPopup/edit.Popup.service';
-import { PopupSetting } from '../model/popup.setting';
 import { DataService } from './../../../core/data.api/data.service';
-import {MatTableDataSource} from '@angular/material';
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
@@ -14,7 +12,7 @@ export class ListComponent implements OnInit {
   @Input() saveData: Function;
   @Input() deleteData: Function;
   @Input() updateData: Function;
-  @Input() tableSetting: Array<TableSetting>;
+  @Input() tableSetting: TableSetting;
   @Output() onSave: EventEmitter<any>;
   item : any = { 
     id: '1',
@@ -30,19 +28,16 @@ export class ListComponent implements OnInit {
     orderDetails : null
   }
   private _keys: Array<any>;
-  popupSetting: PopupSetting;
+  popupFields: Array<PopupFields>=[];
   constructor(private editpopupServiceService: EditpopupService,
     private dataService: DataService) {
     this._keys = [];
     this.onSave = new EventEmitter<any>();
-    this.popupSetting = new PopupSetting();
-    this.popupSetting.fields = this.tableSetting;
-   
   }
   ngOnInit() {
     this.validateTableSettings();
     // this.data.push(this.item) ;
-    
+    this.popupFields = this.tableSetting.popupFields;
      this.dataService.getProducts().subscribe((d: any) => {
       this.data = d ;
     });
@@ -50,13 +45,13 @@ export class ListComponent implements OnInit {
   }
 
   private validateTableSettings() {
-    if (this.tableSetting.length === 0) {
+    if (this.tableSetting.headerSetting.length === 0) {
       throw 'Popup fileds should not be null';
     }
   }
   addNewLine() {
 
-    this.editpopupServiceService.openDialog(this.tableSetting).subscribe(x => {
+    this.editpopupServiceService.openDialog(this.tableSetting.popupFields).subscribe(x => {
       // this.onSave.emit(x);
       if (x) {
         this.data.push(x);
@@ -67,7 +62,7 @@ export class ListComponent implements OnInit {
     })
   }
   edit(row) {
-    this.editpopupServiceService.openDialog(this.tableSetting, row).subscribe(x => {
+    this.editpopupServiceService.openDialog(this.tableSetting.popupFields, row).subscribe(x => {
       // this.onSave.emit(x);
       if (x) {
         let index = this.data.findIndex(x => {

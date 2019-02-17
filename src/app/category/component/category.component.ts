@@ -13,11 +13,10 @@ import { Store } from '@ngrx/store';
 export class CategoryComponent implements OnInit {
 
   products: Array<Categories>;
-  private _tableSetting: Array<TableSetting>;
+  private _tableSetting: TableSetting;
   serviceApi: string;
   constructor(private productservice: CategoryService) {
     this.products = new Array<Categories>();
-    this._tableSetting = [];
     // this.Product$ = store.pipe(select(fromProductSelector.getProductsState));
     this._tableSetting = CategorySetting.TableSetting;
     this.serviceApi=this.productservice.serviceApi;

@@ -1,16 +1,28 @@
 import { TableSetting, FieldType } from "../shared/table/model";
 
 export class CategorySetting {
-    public static TableSetting: Array<TableSetting> = [
+    public static TableSetting: TableSetting ={ headerSetting:[
         {
-            headerName: 'Name', name: 'CategoryName', type: FieldType.Txt, model: 'CategoryName',
-            placeholder: "Name"
+            headerName: 'Name', model: 'CategoryName',
         },
         {
-            headerName: 'Description', name: 'Description', type: FieldType.Txt,
-            model: 'Description', placeholder: "Description"
+            headerName: 'Description', 
+            model: 'Description'
         }, {
-            headerName: 'Image', name: 'img', type: FieldType.Image,
-            model: 'Picture', placeholder: "image"
-        }];
+            headerName: 'Image',  model: 'Picture'
+        }],
+        popupFields:[
+            {
+                name: 'CategoryName', type: FieldType.Txt, model: 'CategoryName',
+                placeholder: "Name"
+            },
+            {
+               name: 'Description', type: FieldType.Txt,
+                model: 'Description', placeholder: "Description"
+            }, {
+               name: 'img', type: FieldType.Image,
+                model: 'Picture', placeholder: "image"
+            }
+        ]
+    };
 }

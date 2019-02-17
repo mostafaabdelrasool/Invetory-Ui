@@ -16,12 +16,11 @@ import { TableSetting } from 'src/app/shared/table/model';
 })
 export class ProductComponent implements OnInit {
   products: Array<Products>;
-  private _tableSetting: Array<TableSetting>;
+  private _tableSetting: TableSetting;
   Product$: Observable<fromProduct.ProductState>;
   serviceApi: string;
   constructor(private productservice: ProductService, private store: Store<fromProduct.State>) {
     this.products = new Array<Products>();
-    this._tableSetting = [];
     // this.Product$ = store.pipe(select(fromProductSelector.getProductsState));
     this._tableSetting = ProductSetting.TableSetting;
     this.serviceApi=this.productservice.serviceApi;

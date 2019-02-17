@@ -1,14 +1,20 @@
 
 export interface TableSetting {
-    model: string;
+    headerSetting:Array<HeaderSetting>
+    popupFields:Array<PopupFields>
+}
+export interface PopupFields{
     type: FieldType;
-    selectUrl?: string;
-    name: string;
-    width?: string;
     placeholder?:string,
-    headerName:string,
-    displayValue?:Array<string>,
-    selectSetting?:SelectSetting
+    model: string;
+    displayValue?:Array<string>;
+    selectSetting?:SelectSetting;
+    name?: string;
+}
+export interface HeaderSetting{
+    model: string;
+    width?: string;
+    headerName:string;
 }
 export enum FieldType {
     Txt = "Text",
@@ -18,7 +24,7 @@ export enum FieldType {
     Number = "number",
     Image = "img"
 }
-export class SelectSetting{
+export interface SelectSetting{
     apiUrl?:string ;
     data?:Array<any>;
     dataModel?:string;

@@ -13,13 +13,13 @@
 <table class="table table-striped">
     <thead>
         <tr>
-            <th *ngFor="let col of tableSetting">{{col.headerName}}</th>
+            <th *ngFor="let col of tableSetting.headerSetting">{{col.headerName}}</th>
             <th>Actions</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let row of data">
-            <td *ngFor="let setting of tableSetting">
+            <td *ngFor="let setting of tableSetting.headerSetting">
                 <p *ngIf="setting.type!=='img';else img">{{row[setting.model]}}</p>
                 <ng-template #img>
                     <img class="st-image item-image" [src]="row[setting.model]"/>

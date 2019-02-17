@@ -23,7 +23,16 @@ export class ProductComponent implements OnInit {
     this.products = new Array<Products>();
     // this.Product$ = store.pipe(select(fromProductSelector.getProductsState));
     this._tableSetting = ProductSetting.TableSetting;
-    this.serviceApi=this.productservice.serviceApi;
+    this.serviceApi = this.productservice.serviceApi;
+    this.productservice.getProducts().subscribe((x: Products[]) => {
+      x.forEach(p => {
+        p.category = {
+          categoryID: '122123123', categoryName: 'sassa',
+          description:'sssss'
+        }
+        this.products.push(p);
+      })
+    })
   }
 
   ngOnInit() {
@@ -32,7 +41,7 @@ export class ProductComponent implements OnInit {
     let p = new SaveProduct(product);
     this.store.dispatch(p);
   }
-  updateProduct=(product: Products) => {
+  updateProduct = (product: Products) => {
     let p = new SaveProduct(product);
     this.store.dispatch(p);
   }

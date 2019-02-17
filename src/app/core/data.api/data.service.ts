@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DataService {
   private _url: string;
-  constructor(private http: HttpClient) {
+  constructor(public http: HttpClient) {
     this._url = environment.apiUrl;
   }
   get(serviceApi) {
@@ -16,8 +16,6 @@ export class DataService {
   post(serviceApi:string,data) {
     return this.http.post(this._url+serviceApi, data);
   }
-  getProducts(){
-    return this.http.get('assets/mocks/products.json') ;
-  }
+ 
 }
 

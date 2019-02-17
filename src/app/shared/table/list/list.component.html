@@ -20,7 +20,8 @@
     <tbody>
         <tr *ngFor="let row of data">
             <td *ngFor="let setting of tableSetting.headerSetting">
-                <p *ngIf="setting.type!=='img';else img">{{row[setting.model]}}</p>
+                <p *ngIf="setting.type!=='img';else img">
+                    {{objectUtilityService.getPathData(row,setting.model)}}</p>
                 <ng-template #img>
                     <img class="st-image item-image" [src]="row[setting.model]"/>
                 </ng-template>

@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { TableSetting, PopupFields } from '../model/popup.fields';
 import { EditpopupService } from '../editPopup/edit.Popup.service';
 import { DataService } from './../../../core/data.api/data.service';
+import { ObjectUtilityService } from '../service/object.utility.service';
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
@@ -30,7 +31,8 @@ export class ListComponent implements OnInit {
   private _keys: Array<any>;
   popupFields: Array<PopupFields>=[];
   constructor(private editpopupServiceService: EditpopupService,
-    private dataService: DataService) {
+    private dataService: DataService,
+    private objectUtilityService:ObjectUtilityService) {
     this._keys = [];
     this.onSave = new EventEmitter<any>();
   }
@@ -38,9 +40,6 @@ export class ListComponent implements OnInit {
     this.validateTableSettings();
     // this.data.push(this.item) ;
     this.popupFields = this.tableSetting.popupFields;
-     this.dataService.getProducts().subscribe((d: any) => {
-      this.data = d ;
-    });
       console.log('data =>',  this.data);
   }
 

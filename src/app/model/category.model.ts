@@ -2,6 +2,6 @@ export interface Categories{
     categoryID: string;
     categoryName: string;
     description: string;
-    picture: any[];
-    products: any[];
+    picture?: any[];
+    products?: any[];
 }

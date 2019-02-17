@@ -9,7 +9,7 @@ export class ProductSetting {
             { headerName: 'Units In Stock', model: 'unitsInStock' },
             { headerName: 'Discontinued', model: 'discontinued' },
             { headerName: 'Image', model: 'img' },
-            { headerName: 'Category', model: 'categoryId' }],
+            { headerName: 'Category', model: 'category.description' }],
         popupFields: [
             { name: 'productName', type: FieldType.Txt, model: 'productName', placeholder: "Product Name" },
             { name: 'UnitPrice', type: FieldType.Number, model: 'unitPrice', placeholder: "Unit price" },

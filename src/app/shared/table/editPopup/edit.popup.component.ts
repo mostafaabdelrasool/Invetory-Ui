@@ -7,7 +7,7 @@ import { SelectSetting } from '../model/popup.fields';
   selector: 'app-editPopup',
   templateUrl: './edit.popup.component.html',
   styleUrls: ['./edit.popup.component.scss'],
-  encapsulation:ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None
 })
 export class EditPopupComponent implements OnInit {
   data = {};
@@ -33,6 +33,9 @@ export class EditPopupComponent implements OnInit {
     if (!this.tableApiService[setting.cashingObjectName]) {
       this.tableApiService.fetchData(setting.apiUrl).subscribe(x => {
         setting.data = <Array<any>>x;
+        if (setting.data.length > 0) {
+          this.tableApiService[setting.cashingObjectName] = setting.data;
+        }
       })
     } else {
       setting.data = this.tableApiService[setting.cashingObjectName];

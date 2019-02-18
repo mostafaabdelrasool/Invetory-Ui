@@ -15,19 +15,19 @@ export class ProductEffects {
     private productService: fromServices.ProductService
   ) {}
 
-//   @Effect()
-//   loadPizzas$ = this.actions$.ofType(productActions.SaveProduct).pipe(
-//     switchMap(() => {
-//       return this.productService
-//         .post(this.productService.serviceApi,{})
-//         .pipe(
-//           map(pizzas => new pizzaActions.LoadPizzasSuccess(pizzas)),
-//           catchError(error => 
-//             of(new pizzaActions.LoadPizzasFail(error))
-//             )
-//         );
-//     })
-//   );
+  @Effect()
+  loadPizzas$ = this.actions$.ofType(productActions.ProductActionTypes.LoadProduct).pipe(
+    switchMap(() => {
+      return this.productService
+        .get(this.productService.serviceApi)
+        .pipe(
+          map((products:Array<Products>) => new productActions.LoadProductSucess(products)),
+          catchError(error => 
+            of(new productActions.LoadProductFail(error))
+            )
+        );
+    })
+  );
   @Effect()
   createProduct$ = this.actions$.ofType(productActions.ProductActionTypes.SaveProduct).pipe(
     map((action: productActions.SaveProduct) => action.payload),

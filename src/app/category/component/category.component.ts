@@ -3,9 +3,11 @@ import { TableSetting } from 'src/app/shared/table/model';
 import { Categories } from 'src/app/model/category.model';
 import { CategorySetting } from '../category.setting';
 import { CategoryService } from '../service/category.service';
-import { Store } from '@ngrx/store';
-import * as fromCategory from '../store/reducer/index';
-import { SaveCategory } from '../store/actions/category.action';
+import { Store, select } from '@ngrx/store';
+import { SaveCategory, LoadCategory } from '../store/actions/category.action';
+import { EntityState } from '@ngrx/entity';
+import * as fromCategorySelector from '../store/selector/category.selector';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-category',
@@ -13,27 +15,30 @@ import { SaveCategory } from '../store/actions/category.action';
   styleUrls: ['./category.component.scss']
 })
 export class CategoryComponent implements OnInit {
-
-  products: Array<Categories>;
   private _tableSetting: TableSetting;
   serviceApi: string;
+  categories$: Observable<Array<Categories>>;
   constructor(private categoryService: CategoryService
-    , private store: Store<fromCategory.State>) {
-    this.products = new Array<Categories>();
-    // this.Product$ = store.pipe(select(fromProductSelector.getProductsState));
+    , private store: Store<EntityState<Categories>>) {
+    this.categories$ = store.pipe(select(fromCategorySelector.getCategoryEntity));
     this._tableSetting = CategorySetting.TableSetting;
     this.serviceApi=this.categoryService.serviceApi;
   }
 
   ngOnInit() {
+    this.loadCategories();
   }
-  saveProduct = (category: Categories) => {
+  saveCategory = (category: Categories) => {
     let p = new SaveCategory(category);
     this.store.dispatch(p);
   }
-  updateProduct=(product: Categories) => {
+  updateCategory=(category: Categories) => {
     // let p = new SaveProduct(product);
     // this.store.dispatch(p);
+  }
+  loadCategories = () => {
+    let p = new LoadCategory();
+    this.store.dispatch(p);
   }
 
 }

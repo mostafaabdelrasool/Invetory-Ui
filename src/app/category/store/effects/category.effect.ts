@@ -26,4 +26,18 @@ export class CategroyEffects {
             );
         })
       );
+
+      @Effect()
+      loadCategories$ = this.actions$.ofType(categoryActions.CategoryActionTypes.LoadCategories).pipe(
+        switchMap(() => {
+          return this.categoryService
+            .get(this.categoryService.serviceApi)
+            .pipe(
+              map((categories:Array<Categories>) => new categoryActions.LoadCategorisSuccess(categories)),
+              catchError(error => 
+                of(new categoryActions.LoadCategorisFail(error))
+                )
+            );
+        })
+      );
 }

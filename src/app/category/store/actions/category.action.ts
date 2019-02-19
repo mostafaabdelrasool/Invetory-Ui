@@ -3,6 +3,8 @@ import { Categories } from 'src/app/model/category.model';
 
 export enum CategoryActionTypes {
   LoadCategories = 'Load Categories',
+  LoadCategorisSuccess = 'Load Categoriss success',
+  LoadCategorisFail = 'Load Categoriss fail',
   SaveCategory = 'Save Categories',
   SaveCategorySuccess = 'Save Categories success',
   SaveCategoryFail = "Save Categories Fail",
@@ -12,6 +14,16 @@ export enum CategoryActionTypes {
 
 export class LoadCategory implements Action {
   readonly type = CategoryActionTypes.LoadCategories;
+  public payload: Categories[];
+  constructor() { }
+}
+export class LoadCategorisSuccess implements Action {
+  readonly type = CategoryActionTypes.LoadCategorisSuccess;
+
+  constructor(public payload: Categories[]) { }
+}
+export class LoadCategorisFail implements Action {
+  readonly type = CategoryActionTypes.LoadCategorisFail;
 
   constructor(public payload: Categories[]) { }
 }
@@ -40,4 +52,5 @@ export class SaveCategoryFail implements Action {
 
   constructor(public payload: Categories) { }
 }
-export type CategoryActionUnion = LoadCategory | SaveCategory | SaveCategorySuccess|SaveCategoryFail;
+export type CategoryActionUnion = LoadCategory | SaveCategory 
+| SaveCategorySuccess|SaveCategoryFail | LoadCategorisFail | LoadCategorisSuccess;

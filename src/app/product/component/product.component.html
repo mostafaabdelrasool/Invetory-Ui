@@ -1,5 +1,5 @@
 <app-list
-    [data]="products"
+    [data]="Product$ | async"
     [saveData]="saveProduct"
     [tableSetting]="_tableSetting"
     [updateData]='updateProduct'

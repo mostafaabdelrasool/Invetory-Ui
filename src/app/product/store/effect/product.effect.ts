@@ -16,7 +16,7 @@ export class ProductEffects {
   ) {}
 
   @Effect()
-  loadPizzas$ = this.actions$.ofType(productActions.ProductActionTypes.LoadProduct).pipe(
+  loadProducts$ = this.actions$.ofType(productActions.ProductActionTypes.LoadProduct).pipe(
     switchMap(() => {
       return this.productService
         .get(this.productService.serviceApi)

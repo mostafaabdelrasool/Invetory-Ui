@@ -1,6 +1,6 @@
 <app-list
-    [data]="products"
-    [saveData]="saveProduct"
+    [data]="categories$ | async"
+    [saveData]="saveCategory"
     [tableSetting]="_tableSetting"
-    [updateData]='updateProduct'
+    [updateData]='updateCategory'
 ></app-list>

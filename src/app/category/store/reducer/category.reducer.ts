@@ -3,19 +3,12 @@ import { Categories } from 'src/app/model/category.model';
 import { CategoryActionUnion, CategoryActionTypes } from '../actions/category.action';
 //import or declare state
 
-export interface State extends EntityState<Categories> {
-    selectedCategoryId: string | null;
-}
-export const adapter: EntityAdapter<Categories> = createEntityAdapter<Categories>({
-    selectId: (category: Categories) => category.categoryID,
-    sortComparer: false,
-});
-export const intialState: State = adapter.getInitialState({
-    selectedCategoryId: null,
-});
-export function categoryReducer(state = intialState, action: CategoryActionUnion) {
+export const adapter: EntityAdapter<Categories> = createEntityAdapter<Categories>();
+export const intialState:  EntityState<Categories> = adapter.getInitialState();
+export function categoryReducer(state = intialState, action: CategoryActionUnion):
+EntityState<Categories> {
     switch (action.type) {
-        case CategoryActionTypes.LoadCategories: {
+        case CategoryActionTypes.LoadCategorisSuccess: {
             return adapter.addMany(action.payload, state);
         }
         case CategoryActionTypes.SaveCategorySuccess: {

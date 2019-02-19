@@ -3,19 +3,11 @@ import { Products } from "src/app/model";
 import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
 //import or declare state
 
-export interface State extends EntityState<Products> {
-    selectedProductId: string | null;
-}
-export const adapter: EntityAdapter<Products> = createEntityAdapter<Products>({
-    selectId: (product: Products) => product.id,
-    sortComparer: false,
-});
-export const intialState: State = adapter.getInitialState({
-    selectedProductId: null,
-});
-export function ProductReducer(state = intialState, action: ProductActionUnion): State {
+export const adapter: EntityAdapter<Products> = createEntityAdapter<Products>();
+export const intialState: EntityState<Products> = adapter.getInitialState();
+export function ProductReducer(state = intialState, action: ProductActionUnion): EntityState<Products> {
     switch (action.type) {
-        case ProductActionTypes.LoadProduct: {
+        case ProductActionTypes.LoadProductSuccess: {
             return adapter.addMany(action.payload, state);
         }
         case ProductActionTypes.SaveProductSuccess: {

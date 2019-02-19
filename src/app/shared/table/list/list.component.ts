@@ -15,25 +15,11 @@ export class ListComponent implements OnInit {
   @Input() updateData: Function;
   @Input() tableSetting: TableSetting;
   @Output() onSave: EventEmitter<any>;
-  item : any = { 
-    id: '1',
-    productName :'Maryam',
-    quantityPerUnit : '1',
-    unitPrice :'1', 
-    unitsInStock: '1',
-    unitsOnOrder : '1', 
-    reorderLevel: '1' ,
-    discontinued: false,
-    category : '1' ,
-    supplier : null ,
-    orderDetails : null
-  }
-  private _keys: Array<any>;
+ 
   popupFields: Array<PopupFields>=[];
   constructor(private editpopupServiceService: EditpopupService,
     private dataService: DataService,
     private objectUtilityService:ObjectUtilityService) {
-    this._keys = [];
     this.onSave = new EventEmitter<any>();
   }
   ngOnInit() {

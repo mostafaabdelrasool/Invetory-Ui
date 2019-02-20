@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CoreComponent } from './core.component';
 import { DataService } from './data.api/data.service';
 import { HttpClientModule } from '@angular/common/http';
+import { BaseComponent } from './base/base.component';
 @NgModule({
   imports: [
     CommonModule,HttpClientModule,
   ],
-  declarations: [CoreComponent],
+  declarations: [BaseComponent],
   providers:[DataService],
+  exports:[BaseComponent]
 })
 export class CoreModule { }

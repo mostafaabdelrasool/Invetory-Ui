@@ -15,6 +15,9 @@ export class GenericReducer<T> {
             case GenericActionTypes.LoadSuccess: {
                 return this.adapter.addMany(action.payload, state);
             }
+            case GenericActionTypes.SaveSuccess: {
+                return this.adapter.addOne(action.payload, state);
+            }
             default:
                 return state;
         }

@@ -2,54 +2,38 @@ import { Action } from '@ngrx/store';
 import { Products } from 'src/app/model/index';
 
 export enum GenericActionTypes {
-  Load = 'Load',
   LoadSuccess = 'Load  success',
-  LoadProductFail = 'Load Products fail',
-  SaveProduct = 'Save Products',
-  SaveProductSuccess = 'Save Products success',
-  SaveProductFail = "Save Product Fail",
-  UpdateProduct = "UpdateProduct",
-  UpdateProductSuccess = "UpdateProductSuccess"
+  LoadFail = 'Load fail',
+  SaveSuccess = 'Save success',
+  SaveFail = "Save Fail",
+  UpdateSuccess = "Update\Success"
 }
 
-export class Load<T> implements Action {
-  readonly type = GenericActionTypes.Load;
-  public payload: T[];
-  constructor() { }
-}
 export class LoadSucess<T> implements Action {
   readonly type = GenericActionTypes.LoadSuccess;
 
   constructor(public payload: T[]) { }
 }
 export class LoadFail<T> implements Action {
-  readonly type = GenericActionTypes.LoadProductFail;
+  readonly type = GenericActionTypes.LoadFail;
 
-  constructor(public payload: Products[]) { }
+  constructor(public payload: T[]) { }
 }
-export class SaveProduct implements Action {
-  readonly type = GenericActionTypes.SaveProduct;
 
-  constructor(public payload: Products) { }
-}
-export class SaveProductSuccess implements Action {
-  readonly type = GenericActionTypes.SaveProductSuccess;
+export class SaveSuccess<T> implements Action {
+  readonly type = GenericActionTypes.SaveSuccess;
 
-  constructor(public payload: Products) { }
+  constructor(public payload: T) { }
 }
-export class UpdateProduct implements Action {
-  readonly type = GenericActionTypes.UpdateProduct;
+export class UpdateSuccess<T> implements Action {
+  readonly type = GenericActionTypes.UpdateSuccess;
 
-  constructor(public payload: Products) { }
+  constructor(public payload: T) { }
 }
-export class UpdateProductSuccess implements Action {
-  readonly type = GenericActionTypes.UpdateProductSuccess;
+export class SaveFail<T> implements Action {
+  readonly type = GenericActionTypes.SaveFail;
 
   constructor(public payload: Products) { }
 }
-export class SaveProductFail implements Action {
-  readonly type = GenericActionTypes.SaveProductFail;
-
-  constructor(public payload: Products) { }
-}
-export type GenericActionUnion<T> = Load<T> | LoadSucess<T>;
+export type GenericActionUnion<T> = LoadFail<T> | LoadSucess<T> |
+SaveSuccess<T> | UpdateSuccess<T> | SaveFail<T>;

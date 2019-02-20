@@ -5,17 +5,17 @@ import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import * as fromProductSelector from '../store/selectors/product.selector';
 import { ProductSetting } from '../product.setting';
-import { SaveProduct, LoadProduct } from '../store/actions/product.action';
+import * as productActions from '../store/actions/product.action';
 import { TableSetting } from 'src/app/shared/table/model';
 import { EntityState } from '@ngrx/entity';
-import { Load } from 'src/app/genetric.store/actions/generic.actions';
+import { BaseComponent } from 'src/app/core/base/base.component';
 
 @Component({
   selector: 'st-product',
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.scss']
 })
-export class ProductComponent implements OnInit {
+export class ProductComponent implements OnInit,BaseComponent<Products> {
   private _tableSetting: TableSetting;
   Product$: Observable<Array<Products>>;
   serviceApi: string;
@@ -23,22 +23,25 @@ export class ProductComponent implements OnInit {
     this.Product$ = store.pipe(select(fromProductSelector.getProductsState))
     this._tableSetting = ProductSetting.TableSetting;
     this.serviceApi = this.productservice.serviceApi;
-
   }
 
   ngOnInit() {
     this.loadProduct();
   }
   saveProduct = (product: Products) => {
-    let p = new SaveProduct(product);
+    let p = new productActions.SaveProduct(product);
     this.store.dispatch(p);
   }
   updateProduct = (product: Products) => {
-    let p = new SaveProduct(product);
+    let p = new productActions.UpdateProduct(product);
     this.store.dispatch(p);
   }
   loadProduct = () => {
-    let p = new Load();
+    let p = new productActions.LoadProduct();
+    this.store.dispatch(p);
+  }
+  deleteProduct = (product: Products) => {
+    let p = new productActions.SaveProduct(product);
     this.store.dispatch(p);
   }
 }

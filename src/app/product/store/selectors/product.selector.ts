@@ -1,7 +1,7 @@
 import { createFeatureSelector, createSelector } from "@ngrx/store";
-import { EntityState } from "@ngrx/entity";
-import { Products } from "src/app/model";
+import { productState } from "../reducer";
 
- export const getState = createFeatureSelector<EntityState<Products>>('products');
+export const getState = createFeatureSelector<productState>('products');
 
- export const getProductsState = createSelector(getState,x=> Object.values(x.entities));
+export const getProductsState = createSelector(getState,x=>
+ Object.values(x.genProducts.entities));

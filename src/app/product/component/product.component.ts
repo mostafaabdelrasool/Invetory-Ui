@@ -8,6 +8,7 @@ import { ProductSetting } from '../product.setting';
 import { SaveProduct, LoadProduct } from '../store/actions/product.action';
 import { TableSetting } from 'src/app/shared/table/model';
 import { EntityState } from '@ngrx/entity';
+import { Load } from 'src/app/genetric.store/actions/generic.actions';
 
 @Component({
   selector: 'st-product',
@@ -37,7 +38,7 @@ export class ProductComponent implements OnInit {
     this.store.dispatch(p);
   }
   loadProduct = () => {
-    let p = new LoadProduct();
+    let p = new Load();
     this.store.dispatch(p);
   }
 }

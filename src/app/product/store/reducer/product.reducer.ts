@@ -1,5 +1,5 @@
-import { GenericReducer } from "src/app/genetric.store/reducer/generice.reducer";
 import { Products } from "src/app/model";
+import { GenericReducer } from "src/app/generic.store/reducer/generice.reducer";
 
 export class ProductReducer extends GenericReducer<Products>{
 }

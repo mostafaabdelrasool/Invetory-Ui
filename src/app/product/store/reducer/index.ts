@@ -1,4 +1,3 @@
-import * as fromPoduct from './product.reducer';
 import { ProductReducer } from './product.reducer';
 import { ActionReducerMap } from '@ngrx/store';
 import { EntityState } from '@ngrx/entity';

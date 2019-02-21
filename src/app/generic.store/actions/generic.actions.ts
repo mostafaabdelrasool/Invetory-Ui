@@ -1,5 +1,4 @@
 import { Action } from '@ngrx/store';
-import { Products } from 'src/app/model/index';
 
 export enum GenericActionTypes {
     Load = 'Load',

@@ -11,7 +11,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { CategoryModule } from './category/category.module';
 import { TestScssComponent } from './test-scss/test-scss.component';
 import { OrdersModule } from './orders/orders.module';
-import { GenericEffects } from './genetric.store/effect/generic.effect';
+import { GenericEffects } from './generic.store/effect/generic.effect';
 @NgModule({
   declarations: [
     AppComponent,

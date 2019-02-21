@@ -9,7 +9,6 @@ import * as productActions from '../store/actions/product.action';
 import { TableSetting } from 'src/app/shared/table/model';
 import { EntityState } from '@ngrx/entity';
 import { BaseComponent } from 'src/app/core/base/base.component';
-import { GenericAction, GenericActionTypes } from 'src/app/genetric.store/actions/generic.actions';
 
 @Component({
   selector: 'st-product',

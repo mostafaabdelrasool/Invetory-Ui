@@ -7,6 +7,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { reducers } from './store/reducer/index';
 import { ProductComponent } from './component/product.component';
 import { ProductEffects } from './store/effect/index';
+import { ProductService } from './service/product.service';
 
 
 @NgModule({
@@ -16,5 +17,6 @@ import { ProductEffects } from './store/effect/index';
     EffectsModule.forFeature([ProductEffects]),
   ],
   declarations: [ProductComponent],
+  providers:[ProductService]
 })
 export class ProductModule { }

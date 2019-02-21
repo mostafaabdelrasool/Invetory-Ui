@@ -1,21 +1,25 @@
 import { Component, OnInit } from '@angular/core';
+import { GenericAction, GenericActionTypes } from 'src/app/genetric.store/actions/generic.actions';
+import { Store } from '@ngrx/store';
+import { EntityState } from '@ngrx/entity';
 
-@Component({
-  selector: 'app-base',
-  templateUrl: './base.component.html',
-  styleUrls: ['./base.component.scss']
-})
 export class BaseComponent<T> implements OnInit {
 
-  constructor() { }
+  constructor(public url, public store: Store<EntityState<T>>) {
+    debugger
+   }
 
   ngOnInit() {
   }
   saveProduct = (item: T) => {
+    let p = new  GenericAction(GenericActionTypes.Save,item,this.url);
+    this.store.dispatch(p);
   }
   updateProduct = (item: T) => {
   }
   loadProduct = () => {
+    let p = new GenericAction(GenericActionTypes.Load,null,this.url);
+    this.store.dispatch(p);
   }
   deleteProduct = (item: T) => {
   }

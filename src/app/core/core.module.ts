@@ -7,8 +7,8 @@ import { BaseComponent } from './base/base.component';
   imports: [
     CommonModule,HttpClientModule,
   ],
-  declarations: [BaseComponent],
+  // declarations: [BaseComponent],
   providers:[DataService],
-  exports:[BaseComponent]
+  //  exports:[BaseComponent]
 })
 export class CoreModule { }

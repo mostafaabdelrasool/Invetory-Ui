@@ -8,11 +8,10 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ProductService extends DataService {
-  serviceApi: string;
+  public readonly serviceApi: string='api/Product';
 
   constructor(http: HttpClient) {
     super(http)
-     this.serviceApi= 'api/Product';
   }
   getProducts():Observable<object>{
     return this.http.get('assets/mocks/products.json') ;

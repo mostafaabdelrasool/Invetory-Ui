@@ -16,33 +16,35 @@ import { GenericAction, GenericActionTypes } from 'src/app/genetric.store/action
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.scss']
 })
-export class ProductComponent implements OnInit,BaseComponent<Products> {
+export class ProductComponent extends BaseComponent<Products> implements OnInit  {
   private _tableSetting: TableSetting;
   Product$: Observable<Array<Products>>;
   serviceApi: string;
-  constructor(private productservice: ProductService, private store: Store<EntityState<Products>>) {
+  constructor(public productservice: ProductService,public store: Store<EntityState<Products>>) {
+    super(productservice.serviceApi,store);
     this.Product$ = store.pipe(select(fromProductSelector.getProductsState))
     this._tableSetting = ProductSetting.TableSetting;
     this.serviceApi = this.productservice.serviceApi;
+    
   }
 
   ngOnInit() {
     this.loadProduct();
   }
-  saveProduct = (product: Products) => {
-    let p = new productActions.ProductAction(productActions.ProductActionTypes.SaveProduct,product);
-    this.store.dispatch(p);
-  }
-  updateProduct = (product: Products) => {
-    let p = new productActions.ProductAction(productActions.ProductActionTypes.UpdateProduct,product);
-    this.store.dispatch(p);
-  }
-  loadProduct = () => {
-   let p = new GenericAction(GenericActionTypes.Load,null,'api/Product');
-   this.store.dispatch(p);
-  }
-  deleteProduct = (product: Products) => {
-    let p = new productActions.ProductAction(productActions.ProductActionTypes.DeleteProduct,product);
-    this.store.dispatch(p);
-  }
+  // saveProduct = (product: Products) => {
+  //   let p = new productActions.ProductAction(productActions.ProductActionTypes.SaveProduct,product);
+  //   this.store.dispatch(p);
+  // }
+  // updateProduct = (product: Products) => {
+  //   let p = new productActions.ProductAction(productActions.ProductActionTypes.UpdateProduct,product);
+  //   this.store.dispatch(p);
+  // }
+  // loadProduct = () => {
+  //  let p = new GenericAction(GenericActionTypes.Load,null,'api/Product');
+  //  this.store.dispatch(p);
+  // }
+  // deleteProduct = (product: Products) => {
+  //   let p = new productActions.ProductAction(productActions.ProductActionTypes.DeleteProduct,product);
+  //   this.store.dispatch(p);
+  // }
 }

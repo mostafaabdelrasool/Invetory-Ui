@@ -16,6 +16,9 @@ export class DataService {
   post(serviceApi:string,data) {
     return this.http.post(this._url+serviceApi, data);
   }
+  put(serviceApi:string,data) {
+    return this.http.put(this._url+serviceApi, data);
+  }
  
 }
 

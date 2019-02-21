@@ -9,6 +9,7 @@ import * as productActions from '../store/actions/product.action';
 import { TableSetting } from 'src/app/shared/table/model';
 import { EntityState } from '@ngrx/entity';
 import { BaseComponent } from 'src/app/core/base/base.component';
+import { GenericAction, GenericActionTypes } from 'src/app/genetric.store/actions/generic.actions';
 
 @Component({
   selector: 'st-product',
@@ -29,19 +30,19 @@ export class ProductComponent implements OnInit,BaseComponent<Products> {
     this.loadProduct();
   }
   saveProduct = (product: Products) => {
-    let p = new productActions.SaveProduct(product);
+    let p = new productActions.ProductAction(productActions.ProductActionTypes.SaveProduct,product);
     this.store.dispatch(p);
   }
   updateProduct = (product: Products) => {
-    let p = new productActions.UpdateProduct(product);
+    let p = new productActions.ProductAction(productActions.ProductActionTypes.UpdateProduct,product);
     this.store.dispatch(p);
   }
   loadProduct = () => {
-    let p = new productActions.LoadProduct();
-    this.store.dispatch(p);
+   let p = new GenericAction(GenericActionTypes.Load,null,'api/Product');
+   this.store.dispatch(p);
   }
   deleteProduct = (product: Products) => {
-    let p = new productActions.SaveProduct(product);
+    let p = new productActions.ProductAction(productActions.ProductActionTypes.DeleteProduct,product);
     this.store.dispatch(p);
   }
 }

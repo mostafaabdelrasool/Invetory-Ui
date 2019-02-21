@@ -11,6 +11,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { CategoryModule } from './category/category.module';
 import { TestScssComponent } from './test-scss/test-scss.component';
 import { OrdersModule } from './orders/orders.module';
+import { GenericEffects } from './genetric.store/effect/generic.effect';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +21,7 @@ import { OrdersModule } from './orders/orders.module';
     BrowserModule, ProductModule,CategoryModule, RouterModule.forRoot([]), CoreModule,
     AngularMaterialModule,
     StoreModule.forRoot({}),
-    EffectsModule.forRoot([]),
+    EffectsModule.forRoot([GenericEffects]),
     StoreDevtoolsModule.instrument({
       maxAge: 5,
       name:"String Store Redux"

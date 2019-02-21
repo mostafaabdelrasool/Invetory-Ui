@@ -1,5 +1,5 @@
 import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
-import { GenericActionUnion,GenericActionTypes } from '../actions/generic.actions';
+import { GenericActionTypes, GenericAction } from '../actions/generic.actions';
 //import or declare state
 export class GenericReducer<T> {
     adapter: EntityAdapter<T>
@@ -9,7 +9,7 @@ export class GenericReducer<T> {
         this.intialState = this.adapter.getInitialState();
      }
     
-    GenericReducer=(state= this.intialState, action: GenericActionUnion<T>):
+    GenericReducer=(state= this.intialState, action: GenericAction):
         EntityState<T>=> {
         switch (action.type) {
             case GenericActionTypes.LoadSuccess: {

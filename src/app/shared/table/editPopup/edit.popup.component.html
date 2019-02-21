@@ -3,7 +3,7 @@
         <div [ngSwitch]="item.type">
             <div *ngSwitchCase="'select'">
                 <mat-form-field>
-                    <mat-select placeholder="{{item.placeholder}}" [(ngModel)]="item.model">
+                    <mat-select placeholder="{{item.placeholder}}" [(ngModel)]="data[item.model]">
                         <mat-option
                             *ngFor="let data of item.selectSetting.data"
                             [value]="data[item.selectSetting.dataModel]"

@@ -23,7 +23,7 @@
                 <p *ngIf="setting.type!=='img';else img">
                     {{objectUtilityService.getPathData(row,setting.model)}}</p>
                 <ng-template #img>
-                    <img class="st-image item-image" [src]="row[setting.model]"/>
+                    <img *ngIf="row[setting.model]" class="st-image item-image" [src]="row[setting.model]"/>
                 </ng-template>
             </td>
             <td>

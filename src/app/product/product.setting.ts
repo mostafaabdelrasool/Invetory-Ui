@@ -8,7 +8,7 @@ export class ProductSetting {
             { headerName: 'Quantity Per Unit', model: 'quantityPerUnit' },
             { headerName: 'Units In Stock', model: 'unitsInStock' },
             { headerName: 'Discontinued', model: 'discontinued' },
-            { headerName: 'Image', model: 'img' },
+            { headerName: 'Image', model: 'img', type: FieldType.Image },
             { headerName: 'Category', model: 'category.description' }],
         popupFields: [
             { name: 'productName', type: FieldType.Txt, model: 'productName', placeholder: "Product Name" },
@@ -19,7 +19,7 @@ export class ProductSetting {
             { name: 'Image', type: FieldType.Image, model: 'img', placeholder: "image" },
             {
                 name: 'Category', type: FieldType.select,
-                model: 'categoryId', placeholder: "Category", displayValue: ['categoryName'],
+                model: 'categoryId', placeholder: "Category",
                 selectSetting: {
                     apiUrl: 'api/Category', data: [], dataModel: 'id', dataViewModel: 'categoryName',
                     cashingObjectName: 'categories'

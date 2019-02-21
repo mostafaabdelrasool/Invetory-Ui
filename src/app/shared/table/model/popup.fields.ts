@@ -15,6 +15,7 @@ export interface HeaderSetting{
     model: string;
     width?: string;
     headerName:string;
+    type?:FieldType
 }
 export enum FieldType {
     Txt = "Text",

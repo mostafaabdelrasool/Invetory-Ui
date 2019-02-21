@@ -30,16 +30,16 @@ export class EditPopupComponent implements OnInit {
     this.dialogRef.close(this.data)
   }
   fetchSelectData(setting: SelectSetting) {
-    if (!this.tableApiService[setting.cashingObjectName]) {
+    // if (!this.tableApiService[setting.cashingObjectName]) {
       this.tableApiService.fetchData(setting.apiUrl).subscribe(x => {
         setting.data = <Array<any>>x;
-        if (setting.data.length > 0) {
-          this.tableApiService[setting.cashingObjectName] = setting.data;
-        }
+        // if (setting.data.length > 0) {
+        //   this.tableApiService[setting.cashingObjectName] = setting.data;
+        // }
       })
-    } else {
-      setting.data = this.tableApiService[setting.cashingObjectName];
-    }
+    // } else {
+    //   setting.data = this.tableApiService[setting.cashingObjectName];
+    // }
 
   }
 }

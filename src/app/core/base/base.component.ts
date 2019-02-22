@@ -8,16 +8,21 @@ export class BaseComponent<T> {
 
   constructor(public url, public store: Store<EntityState<T>>) {
   }
-  saveProduct = (item: T) => {
+  save = (item: T) => {
     let p = new GenericAction(GenericActionTypes.Save, item, this.url);
     this.store.dispatch(p);
   }
-  updateProduct = (item: T) => {
+  update = (item: T) => {
+    let p = new GenericAction(GenericActionTypes.Update, item, this.url);
+    this.store.dispatch(p);
   }
-  loadProduct = () => {
+
+  load = () => {
     let p = new GenericAction(GenericActionTypes.Load, null, this.url);
     this.store.dispatch(p);
   }
-  deleteProduct = (item: T) => {
+  delete = (item: T) => {
+    let p = new GenericAction(GenericActionTypes.Delete, item, this.url);
+    this.store.dispatch(p);
   }
 }

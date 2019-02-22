@@ -1,6 +1,7 @@
 <app-list
     [data]="categories$ | async"
-    [saveData]="saveCategory"
+    [saveData]="save"
     [tableSetting]="_tableSetting"
-    [updateData]='updateCategory'
+    [updateData]='update'
+    [deleteData]='delete'
 ></app-list>

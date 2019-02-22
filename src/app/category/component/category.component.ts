@@ -4,41 +4,30 @@ import { Categories } from 'src/app/model/category.model';
 import { CategorySetting } from '../category.setting';
 import { CategoryService } from '../service/category.service';
 import { Store, select } from '@ngrx/store';
-import { SaveCategory, LoadCategory } from '../store/actions/category.action';
 import { EntityState } from '@ngrx/entity';
 import * as fromCategorySelector from '../store/selector/category.selector';
 import { Observable } from 'rxjs';
+import { BaseComponent } from 'src/app/core/base/base.component';
 
 @Component({
   selector: 'app-category',
   templateUrl: './category.component.html',
   styleUrls: ['./category.component.scss']
 })
-export class CategoryComponent implements OnInit {
+export class CategoryComponent extends BaseComponent<Categories>
+  implements OnInit {
   private _tableSetting: TableSetting;
   serviceApi: string;
   categories$: Observable<Array<Categories>>;
   constructor(private categoryService: CategoryService
-    , private store: Store<EntityState<Categories>>) {
+    , public store: Store<EntityState<Categories>>) {
+    super(categoryService.serviceApi, store);
     this.categories$ = store.pipe(select(fromCategorySelector.getCategoryEntity));
     this._tableSetting = CategorySetting.TableSetting;
-    this.serviceApi=this.categoryService.serviceApi;
+    this.serviceApi = this.categoryService.serviceApi;
   }
 
   ngOnInit() {
-    this.loadCategories();
+    this.load();
   }
-  saveCategory = (category: Categories) => {
-    let p = new SaveCategory(category);
-    this.store.dispatch(p);
-  }
-  updateCategory=(category: Categories) => {
-    // let p = new SaveProduct(product);
-    // this.store.dispatch(p);
-  }
-  loadCategories = () => {
-    let p = new LoadCategory();
-    this.store.dispatch(p);
-  }
-
 }

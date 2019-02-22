@@ -28,7 +28,7 @@ export class ProductComponent extends BaseComponent<Products> implements OnInit 
   }
 
   ngOnInit() {
-    this.loadProduct();
+    this.load();
   }
   // saveProduct = (product: Products) => {
   //   let p = new productActions.ProductAction(productActions.ProductActionTypes.SaveProduct,product);

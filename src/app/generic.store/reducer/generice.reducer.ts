@@ -18,6 +18,12 @@ export class GenericReducer<T> {
             case GenericActionTypes.SaveSuccess: {
                 return this.adapter.addOne(action.payload, state);
             }
+            case GenericActionTypes.UpdateSuccess: {
+                return this.adapter.updateOne(action.payload, state);
+            }
+            case GenericActionTypes.DeleteSuccess: {
+                return this.adapter.removeOne(action.payload, state);
+            }
             default:
                 return state;
         }

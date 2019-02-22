@@ -40,6 +40,38 @@ export class GenericEffects {
                 );
         })
     )
+    @Effect()
+    updateType$ = this.actions$.ofType(genericActions.GenericActionTypes.Update).pipe(
+        map((action: genericActions.GenericAction) => {
+            return { type: action.type, payload: action.payload ,url: action.url}
+        }),
+        switchMap(item => {
+            return this.dataService
+                .put(item.url, item)
+                .pipe(
+                    map(x => new genericActions.GenericAction(genericActions.
+                        GenericActionTypes.UpdateSuccess, x)),
+                    catchError(error => of(new genericActions.GenericAction(genericActions.
+                        GenericActionTypes.SaveFail, error)))
+                );
+        })
+    )
+    @Effect()
+    deleteType$ = this.actions$.ofType(genericActions.GenericActionTypes.Delete).pipe(
+        map((action: genericActions.GenericAction) => {
+            return { type: action.type, payload: action.payload ,url: action.url}
+        }),
+        switchMap(item => {
+            return this.dataService
+                .delete(item.url, item.payload['id'])
+                .pipe(
+                    map(x => new genericActions.GenericAction(genericActions.
+                        GenericActionTypes.DeleteSuccess, x)),
+                    catchError(error => of(new genericActions.GenericAction(genericActions.
+                        GenericActionTypes.SaveFail, error)))
+                );
+        })
+    )
     constructor(
         public actions$: Actions,
         private dataService: DataService,

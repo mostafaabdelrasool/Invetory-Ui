@@ -3,10 +3,8 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared/shared.module';
 import { ProductRoutes } from './routing/product.routing';
 import { StoreModule } from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
 import { reducers } from './store/reducer/index';
 import { ProductComponent } from './component/product.component';
-import { ProductEffects } from './store/effect/index';
 import { ProductService } from './service/product.service';
 
 
@@ -14,7 +12,6 @@ import { ProductService } from './service/product.service';
   imports: [
     CommonModule, SharedModule, ProductRoutes,
     StoreModule.forFeature('products', reducers),
-    EffectsModule.forFeature([ProductEffects]),
   ],
   declarations: [ProductComponent],
   providers:[ProductService]

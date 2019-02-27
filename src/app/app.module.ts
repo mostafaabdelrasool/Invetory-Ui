@@ -12,13 +12,14 @@ import { CategoryModule } from './category/category.module';
 import { TestScssComponent } from './test-scss/test-scss.component';
 import { OrdersModule } from './orders/orders.module';
 import { GenericEffects } from './generic.store/effect/generic.effect';
+import { CustomerModule } from './customer/customer.module';
 @NgModule({
   declarations: [
     AppComponent,
     TestScssComponent
   ],
   imports: [
-    BrowserModule, ProductModule,CategoryModule, RouterModule.forRoot([]), CoreModule,
+    BrowserModule, ProductModule,CategoryModule,CustomerModule, RouterModule.forRoot([]), CoreModule,
     AngularMaterialModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([GenericEffects]),

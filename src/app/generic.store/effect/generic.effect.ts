@@ -31,7 +31,7 @@ export class GenericEffects {
         }),
         switchMap(item => {
             return this.dataService
-                .post(item.url, item)
+                .post(item.url, item.payload)
                 .pipe(
                     map(x => new genericActions.GenericAction(genericActions.
                         GenericActionTypes.SaveSuccess, x)),
@@ -47,7 +47,7 @@ export class GenericEffects {
         }),
         switchMap(item => {
             return this.dataService
-                .put(item.url, item)
+                .put(item.url, item.payload)
                 .pipe(
                     map(x => new genericActions.GenericAction(genericActions.
                         GenericActionTypes.UpdateSuccess, x)),
@@ -66,7 +66,7 @@ export class GenericEffects {
                 .delete(item.url, item.payload['id'])
                 .pipe(
                     map(x => new genericActions.GenericAction(genericActions.
-                        GenericActionTypes.DeleteSuccess, x)),
+                        GenericActionTypes.DeleteSuccess,item.payload)),
                     catchError(error => of(new genericActions.GenericAction(genericActions.
                         GenericActionTypes.SaveFail, error)))
                 );

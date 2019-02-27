@@ -5,7 +5,6 @@ import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import * as fromProductSelector from '../store/selectors/product.selector';
 import { ProductSetting } from '../product.setting';
-import * as productActions from '../store/actions/product.action';
 import { TableSetting } from 'src/app/shared/table/model';
 import { EntityState } from '@ngrx/entity';
 import { BaseComponent } from 'src/app/core/base/base.component';

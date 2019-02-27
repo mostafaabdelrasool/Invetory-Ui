@@ -1,5 +1,5 @@
 export interface Categories{
-    categoryID: string;
+    id: string;
     categoryName: string;
     description: string;
     picture?: any[];

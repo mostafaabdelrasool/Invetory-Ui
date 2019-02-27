@@ -5,7 +5,7 @@ import { StoreModule } from '@ngrx/store';
 import { SharedModule } from '../shared/shared.module';
 import { CustomerRoutes } from './routing/customer.routing';
 import { CustomerService } from './service/customer.service';
-import { reducers } from '../category/store/reducer';
+import { reducers } from './store/reducer';
 
 @NgModule({
   imports: [

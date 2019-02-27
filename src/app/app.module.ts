@@ -19,7 +19,7 @@ import { CustomerModule } from './customer/customer.module';
     TestScssComponent
   ],
   imports: [
-    BrowserModule, ProductModule,CategoryModule,CustomerModule, RouterModule.forRoot([]), CoreModule,
+    BrowserModule, ProductModule,CustomerModule,CategoryModule, RouterModule.forRoot([]), CoreModule,
     AngularMaterialModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([GenericEffects]),

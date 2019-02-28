@@ -7,6 +7,6 @@ export interface CustomerState {
 }
 
 export const reducers: ActionReducerMap<CustomerState> = {
-    genCustomer: new fromCustomer.CustomerReducer().GenericReducer
+    genCustomer: new fromCustomer.CustomerReducer("customer").GenericReducer
 };
 

@@ -14,5 +14,6 @@ export enum GenericActionTypes {
 }
 export class GenericAction implements Action {
    
-  constructor(public type,public payload?,public url?: string) { }
+  constructor(public type,public reducerName,public payload?,public url?: string) { }
 }
+

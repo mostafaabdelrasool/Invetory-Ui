@@ -9,14 +9,14 @@ export class GenericEffects {
     @Effect()
     loadType$ = this.actions$.ofType(genericActions.GenericActionTypes.Load).pipe(
         map((action: genericActions.GenericAction) => {
-            return { type: action.type, url: action.url }
+            return { type: action.type, url: action.url,reducerName:action.reducerName }
         }),
         switchMap((item) => {
             return this.dataService
                 .get(item.url)
                 .pipe(
                     map(t =>
-                        new genericActions.GenericAction(genericActions.GenericActionTypes.LoadSuccess, t)
+                        new genericActions.GenericAction(genericActions.GenericActionTypes.LoadSuccess,item.reducerName ,t)
                     ),
                     catchError(error =>
                         of(null)

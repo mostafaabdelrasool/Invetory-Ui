@@ -8,6 +8,6 @@ export interface CategoryState {
 }
 
 export const reducers: ActionReducerMap<CategoryState> = {
-    genCategries: new fromCategory.CategoryReducer().GenericReducer
+    genCategries: new fromCategory.CategoryReducer("category").GenericReducer
 };
 

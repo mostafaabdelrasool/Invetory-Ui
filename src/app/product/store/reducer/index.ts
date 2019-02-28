@@ -7,6 +7,6 @@ export interface productState {
 }
 
 export const reducers: ActionReducerMap<productState> = {
-    genProducts: new ProductReducer().GenericReducer
+    genProducts: new ProductReducer("product").GenericReducer
 };
 

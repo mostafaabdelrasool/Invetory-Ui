@@ -4,11 +4,14 @@ import { GenericActionTypes, GenericAction } from '../actions/generic.actions';
 export class GenericReducer<T> {
     adapter: EntityAdapter<T>
     intialState: EntityState<T>
+      /**
+      * @param {string} reducerName unique name for module reducer to avoid reducers collisions
+      */
     constructor(public reducerName: string) {
         this.adapter = createEntityAdapter<T>();
         this.intialState = this.adapter.getInitialState();
     }
-
+  
     GenericReducer = (state = this.intialState, action: GenericAction):
         EntityState<T> => {
         if (action.reducerName !== this.reducerName) {

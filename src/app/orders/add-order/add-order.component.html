@@ -1,31 +1,16 @@
-<div class="row ">
-
-  <!-- order form -->
-
-  <div class="example-container">
-
-    <div class="row">
-      <mat-form-field>
-        <input matInput placeholder="Simple placeholder" required>
-      </mat-form-field>
-    </div>
-    <div class="row">
-      <mat-form-field>
-        <mat-label>Both a label and a placeholder</mat-label>
-        <input matInput placeholder="Simple placeholder">
-      </mat-form-field>
-    </div>
-    <div class="row">
-      <mat-form-field>
-        <mat-select required>
-          <mat-option>-- None --</mat-option>
-          <mat-option value="option">Option</mat-option>
-        </mat-select>
-        <mat-label>
-          <mat-icon>favorite</mat-icon> <b> Fancy</b> <i> label</i>
-        </mat-label>
-      </mat-form-field>
-    </div>
-  </div>
-
-</div>
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Customer
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-form-field>
+      <input matInput placeholder="Simple placeholder" required>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Both a label and a placeholder</mat-label>
+      <input matInput placeholder="Simple placeholder">
+    </mat-form-field>
+  </mat-expansion-panel>
+</mat-accordion>

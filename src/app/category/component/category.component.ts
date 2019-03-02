@@ -21,7 +21,7 @@ export class CategoryComponent extends BaseComponent<Categories>
   categories$: Observable<Array<Categories>>;
   constructor(private categoryService: CategoryService
     , public store: Store<EntityState<Categories>>) {
-    super(categoryService.serviceApi, store);
+    super(categoryService.serviceApi, store,"category");
     this.categories$ = store.pipe(select(fromCategorySelector.getCategoryEntity));
     this._tableSetting = CategorySetting.TableSetting;
     this.serviceApi = this.categoryService.serviceApi;

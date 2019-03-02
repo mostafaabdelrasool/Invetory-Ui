@@ -19,7 +19,7 @@ export class ProductComponent extends BaseComponent<Products> implements OnInit 
   Product$: Observable<Array<Products>>;
   serviceApi: string;
   constructor(public productservice: ProductService,public store: Store<EntityState<Products>>) {
-    super(productservice.serviceApi,store);
+    super(productservice.serviceApi,store,"product");
     this.Product$ = store.pipe(select(fromProductSelector.getProductsState))
     this._tableSetting = ProductSetting.TableSetting;
     this.serviceApi = this.productservice.serviceApi;

@@ -19,7 +19,7 @@ export class CustomerComponent extends BaseComponent<Customer> implements OnInit
   customer$: Observable<Array<Customer>>;
   serviceApi: string;
   constructor(public customerservice: CustomerService,public store: Store<EntityState<Customer>>) {
-    super(customerservice.serviceApi,store);
+    super(customerservice.serviceApi,store,"customer");
     this.customer$ = store.pipe(select(fromCustomerSelector.getCustomerState))
     this._tableSetting = CustomerSetting.TableSetting;
     this.serviceApi = this.customerservice.serviceApi;

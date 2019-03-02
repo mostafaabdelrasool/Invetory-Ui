@@ -23,6 +23,8 @@ export class DataService {
   delete(serviceApi: string, id) {
     return this.http.delete(this._url + serviceApi, { params: { id: id } });
   }
-
+  getUrl(url) {
+    return this.http.get(url);
+  }
 }
 

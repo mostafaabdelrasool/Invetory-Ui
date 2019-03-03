@@ -17,12 +17,12 @@ export interface Order {
         postalCode: string,
         country: string
     },
-    details: [
-        {
-            productID: string,
-            unitPrice: string,
-            quantity: string,
-            discount: string
-        }
-    ]
+    details:OrderDetails
+}
+export interface OrderDetails{
+        productId: string,
+        productName?: string,
+        unitPrice: number,
+        quantity: number,
+        discount?: number
 }

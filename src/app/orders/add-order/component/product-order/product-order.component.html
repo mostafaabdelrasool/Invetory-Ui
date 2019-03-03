@@ -1,0 +1,57 @@
+<mat-form-field>
+    <input
+        matInput
+        [(ngModel)]="xx"
+        placeholder="Product"
+        aria-label="Number"
+        [matAutocomplete]="autoProduct"
+    >
+</mat-form-field>
+<mat-autocomplete #autoProduct="matAutocomplete">
+    <mat-option
+        *ngFor="let product of products$ | async"
+        [value]="product.productName"
+        (click)=onProductSelect(product)
+    >
+        <span>{{product.productName}} |</span>
+        <small>
+            Price : {{product.unitPrice}} |  Stock : {{ product.unitsInStock}}
+        </small>
+    </mat-option>
+</mat-autocomplete>
+<mat-divider></mat-divider>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Amount</th>
+            <th>Discount</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of orderDetails;let i =index">
+            <td>{{i+1}}</td>
+            <td>{{item.productName}}</td>
+            <td>{{item.unitPrice}}</td>
+            <td>{{item.quantity}}</td>
+            <td>{{item.discount}}</td>
+            <td>
+                <button
+                        mat-icon-button
+                        color="primary"
+                    >
+                        <mat-icon aria-label="Example icon-button with a heart icon">edit</mat-icon>
+                    </button>
+                    <button
+                        mat-icon-button
+                        color="accent"
+                    >
+                        <mat-icon aria-label="Example icon-button with a heart icon">delete</mat-icon>
+                    </button>
+            </td>
+        </tr>
+    </tbody>
+</table>

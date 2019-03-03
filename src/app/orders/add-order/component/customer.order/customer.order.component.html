@@ -1,0 +1,23 @@
+<mat-form-field>
+  <input
+      matInput
+      placeholder="Customer"
+      aria-label="Number"
+      [matAutocomplete]="autoCustomer"
+      (ngModelChange)=customerChanged($event)
+      [(ngModel)]="selectedCustomer"
+  >
+  <mat-autocomplete #autoCustomer="matAutocomplete">
+      <mat-option
+          *ngFor="let customer of customer$ | async"
+          [value]="customer.contactName"
+      >
+          <span>
+              {{ customer.contactName}}  {{customer.contactTitle}} |
+          </span>
+          <small>
+              {{ customer.address}}  {{customer.city }}
+          </small>
+      </mat-option>
+  </mat-autocomplete>
+</mat-form-field>

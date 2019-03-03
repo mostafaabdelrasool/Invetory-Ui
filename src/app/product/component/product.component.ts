@@ -8,6 +8,7 @@ import { ProductSetting } from '../product.setting';
 import { TableSetting } from 'src/app/shared/table/model';
 import { EntityState } from '@ngrx/entity';
 import { BaseComponent } from 'src/app/core/base/base.component';
+import { ReducerNames } from 'src/app/core/reducer.enum';
 
 @Component({
   selector: 'st-product',
@@ -19,7 +20,7 @@ export class ProductComponent extends BaseComponent<Products> implements OnInit 
   Product$: Observable<Array<Products>>;
   serviceApi: string;
   constructor(public productservice: ProductService,public store: Store<EntityState<Products>>) {
-    super(productservice.serviceApi,store,"product");
+    super(productservice.serviceApi,store,ReducerNames.Product);
     this.Product$ = store.pipe(select(fromProductSelector.getProductsState))
     this._tableSetting = ProductSetting.TableSetting;
     this.serviceApi = this.productservice.serviceApi;

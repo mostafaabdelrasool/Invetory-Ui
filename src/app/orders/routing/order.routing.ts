@@ -1,5 +1,5 @@
 import { RouterModule, Routes } from "@angular/router";
-import { AddOrderComponent } from "../add-order/add-order.component";
+import { AddOrderComponent } from "../add-order/component/add-order.component";
 import { EditOrderComponent } from "../edit-order/edit-order.component";
 import { OrdersListComponent } from "../orders-list/orders-list.component";
 

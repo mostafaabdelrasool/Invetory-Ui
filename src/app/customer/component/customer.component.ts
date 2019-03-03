@@ -16,7 +16,7 @@ import { CustomerSetting } from '../customer.setting';
 export class CustomerComponent extends BaseComponent<Customer> implements OnInit {
 
   private _tableSetting: TableSetting;
-  customer$: Observable<Array<Customer>>;
+  customer$: Observable<Customer[]>;
   serviceApi: string;
   constructor(public customerservice: CustomerService,public store: Store<EntityState<Customer>>) {
     super(customerservice.serviceApi,store,"customer");

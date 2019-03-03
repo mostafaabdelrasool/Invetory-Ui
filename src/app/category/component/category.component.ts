@@ -8,6 +8,7 @@ import { EntityState } from '@ngrx/entity';
 import * as fromCategorySelector from '../store/selector/category.selector';
 import { Observable } from 'rxjs';
 import { BaseComponent } from 'src/app/core/base/base.component';
+import { ReducerNames } from 'src/app/core/reducer.enum';
 
 @Component({
   selector: 'app-category',
@@ -21,7 +22,7 @@ export class CategoryComponent extends BaseComponent<Categories>
   categories$: Observable<Array<Categories>>;
   constructor(private categoryService: CategoryService
     , public store: Store<EntityState<Categories>>) {
-    super(categoryService.serviceApi, store,"category");
+    super(categoryService.serviceApi, store,ReducerNames.Category);
     this.categories$ = store.pipe(select(fromCategorySelector.getCategoryEntity));
     this._tableSetting = CategorySetting.TableSetting;
     this.serviceApi = this.categoryService.serviceApi;

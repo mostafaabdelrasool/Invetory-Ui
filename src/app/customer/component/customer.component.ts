@@ -8,6 +8,7 @@ import { Store, select } from '@ngrx/store';
 import * as fromCustomerSelector from '../store/selectors/customer.selectors';
 import { TableSetting } from 'src/app/shared/table/model';
 import { CustomerSetting } from '../customer.setting';
+import { ReducerNames } from 'src/app/core/reducer.enum';
 @Component({
   selector: 'app-customer',
   templateUrl: './customer.component.html',
@@ -19,7 +20,7 @@ export class CustomerComponent extends BaseComponent<Customer> implements OnInit
   customer$: Observable<Customer[]>;
   serviceApi: string;
   constructor(public customerservice: CustomerService,public store: Store<EntityState<Customer>>) {
-    super(customerservice.serviceApi,store,"customer");
+    super(customerservice.serviceApi,store,ReducerNames.Customer);
     this.customer$ = store.pipe(select(fromCustomerSelector.getCustomerState))
     this._tableSetting = CustomerSetting.TableSetting;
     this.serviceApi = this.customerservice.serviceApi;

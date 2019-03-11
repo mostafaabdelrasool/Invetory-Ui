@@ -16,13 +16,13 @@ import { PopupFields } from 'src/app/shared/table/model/popup.fields';
   styleUrls: ['./customer.order.component.scss']
 })
 export class CustomerOrderComponent implements OnInit {
-  customer$: Observable<Customer[]>;
+  customers$: Observable<Customer[]>;
   @Output() model = new EventEmitter<string>();
   selectedCustomer: string;
   popupFieldSetting: PopupFields[]
   constructor(public store: Store<EntityState<Customer>>,
     private editpopupServiceService: EditpopupService) {
-    this.customer$ = store.pipe(select(getCustomerState));
+    this.customers$ = store.pipe(select(getCustomerState));
     this.popupFieldSetting = CustomerSetting.TableSetting.popupFields;
   }
 
@@ -39,7 +39,8 @@ export class CustomerOrderComponent implements OnInit {
   addCustomer() {
     this.editpopupServiceService.openDialog(this.popupFieldSetting).subscribe(x => {
       if (x) {
-
+        let p = new GenericAction(GenericActionTypes.Save, ReducerNames.Customer, x, 'api/customer');
+        this.store.dispatch(p);
       }
     })
   }

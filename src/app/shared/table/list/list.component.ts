@@ -35,7 +35,6 @@ export class ListComponent implements OnInit {
     }
   }
   addNewLine() {
-
     this.editpopupServiceService.openDialog(this.tableSetting.popupFields).subscribe(x => {
       // this.onSave.emit(x);
       if (x) {

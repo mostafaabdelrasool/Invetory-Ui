@@ -9,7 +9,7 @@
   >
   <mat-autocomplete #autoCustomer="matAutocomplete">
       <mat-option
-          *ngFor="let customer of customer$ | async"
+          *ngFor="let customer of customers$ | async"
           [value]="customer.contactName"
       >
           <span>
@@ -21,3 +21,11 @@
       </mat-option>
   </mat-autocomplete>
 </mat-form-field>
+<button
+    color="primary"
+    mat-raised-button
+    (click)=addCustomer()
+    class="float-right add-btn" 
+>
+    <mat-icon aria-label>add</mat-icon>
+</button>

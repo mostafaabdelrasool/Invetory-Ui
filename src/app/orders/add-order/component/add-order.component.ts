@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-order.component.scss']
 })
 export class AddOrderComponent implements OnInit {
-  
+  isDisabled : boolean =  true;
   constructor() {
   }
   ngOnInit() {

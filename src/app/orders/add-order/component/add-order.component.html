@@ -1,14 +1,16 @@
 <mat-accordion>
-    <mat-expansion-panel>
+    <!--expand when i have a cutomer already existing   -->
+    <mat-expansion-panel >
         <mat-expansion-panel-header>
             <mat-panel-title>Customer</mat-panel-title>
         </mat-expansion-panel-header>
         <app-customer-order (model)=xx></app-customer-order>
     </mat-expansion-panel>
-    <mat-expansion-panel>
+    <mat-expansion-panel [expanded]="true">
         <mat-expansion-panel-header>
-            <mat-panel-title>Products</mat-panel-title>
+            <mat-panel-title>Order Items</mat-panel-title>
         </mat-expansion-panel-header>
         <app-product-order></app-product-order>
     </mat-expansion-panel>
 </mat-accordion>
+

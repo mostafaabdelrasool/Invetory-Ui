@@ -20,7 +20,7 @@ export class GenericEffects {
                             item.reducerName ,t)
                     ),
                     catchError(error =>
-                        of(t =>
+                        of((t: any) =>
                             new genericActions.GenericAction(genericActions.GenericActionTypes.LoadFail,
                                 item.reducerName ,error))
                     )

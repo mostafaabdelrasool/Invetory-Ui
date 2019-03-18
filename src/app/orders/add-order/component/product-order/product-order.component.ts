@@ -21,8 +21,8 @@ export class ProductOrderComponent implements OnInit {
     this.products$ = store.pipe(select(getProductsState))
   }
 
-  colors: string[] = ["yellow", "green"] ;
-  favoriteColor: string ='';
+  colors: string[] = ["yellow", "green"];
+  favoriteColor: string = '';
 
   ngOnInit() {
     this.load();
@@ -36,8 +36,8 @@ export class ProductOrderComponent implements OnInit {
       productId: product.id,
       unitPrice: product.unitPrice,
       quantity: 1,
-      discount:0,
-      productName:product.productName
+      discount: 0,
+      productName: product.productName
     })
     this.orderDetailsChange.emit(this.orderDetails);
   }

@@ -1,21 +1,12 @@
 <mat-form-field>
-    <input
-        matInput
-        [(ngModel)]="xx"
-        placeholder="Product"
-        aria-label="Number"
-        [matAutocomplete]="autoProduct"
-    >
+    <input matInput [(ngModel)]="xx" placeholder="Product" aria-label="Number" [matAutocomplete]="autoProduct">
 </mat-form-field>
 <mat-autocomplete #autoProduct="matAutocomplete">
-    <mat-option
-        *ngFor="let product of products$ | async"
-        [value]="product.productName"
-        (click)=onProductSelect(product)
-    >
+    <mat-option *ngFor="let product of products$ | async" [value]="product.productName"
+        (click)=onProductSelect(product)>
         <span>{{product.productName}} |</span>
         <small>
-            Price : {{product.unitPrice}} |  Stock : {{ product.unitsInStock}}
+            Price : {{product.unitPrice}} | Stock : {{ product.unitsInStock}}
         </small>
     </mat-option>
 </mat-autocomplete>
@@ -23,36 +14,36 @@
 
 
 <div class="row">
-    <mat-form-field  class="col-lg-6">
-      <input matInput placeholder="Product Code">
+    <mat-form-field class="col-lg-6">
+        <input matInput placeholder="Product Code">
     </mat-form-field>
     <mat-form-field class="col-lg-6">
-      <mat-select placeholder="Size">
-        <mat-option value="M">M</mat-option>
-        <mat-option value="L">L</mat-option>
-        <mat-option value="XL">XL</mat-option>
-        <mat-option value="XXL">XXL</mat-option>
-        <mat-option value="XXXL">XXXL</mat-option>
-      </mat-select>
+        <mat-select placeholder="Size">
+            <mat-option value="M">M</mat-option>
+            <mat-option value="L">L</mat-option>
+            <mat-option value="XL">XL</mat-option>
+            <mat-option value="XXL">XXL</mat-option>
+            <mat-option value="XXXL">XXXL</mat-option>
+        </mat-select>
     </mat-form-field>
-    </div>
+</div>
 
-    <div class="row">
-            <mat-radio-group class="example-radio-group" [(ngModel)]="favoriteColor">
-                    <mat-radio-button class="example-radio-button" *ngFor="let color of colors" value="color">
-                      {{color}}
-                    </mat-radio-button>
-                  </mat-radio-group>
-                  <div class="example-selected-value">Your favorite season is: {{favoriteColor}}</div>
+<div class="row">
+        <mat-radio-group class="example-radio-group" [(ngModel)]="favoriteColor">
+                <mat-radio-button class="example-radio-button" *ngFor="let season of colors" [value]="season">
+                  {{season}}
+                </mat-radio-button>
+              </mat-radio-group>
+              <div class="example-selected-value">Your favorite season is: {{favoriteColor}}</div>
+              
+</div>
 
-    </div>
-
-    <div class="row">  
+<div class="row">
     <mat-form-field class="col-lg-4">
         <textarea matInput placeholder="Note"></textarea>
-      </mat-form-field>
-  </div>
-  <mat-divider></mat-divider>
+    </mat-form-field>
+</div>
+<mat-divider></mat-divider>
 
 
 <table class="table table-striped">
@@ -74,18 +65,12 @@
             <td>{{item.quantity}}</td>
             <td>{{item.discount}}</td>
             <td>
-                <button
-                        mat-icon-button
-                        color="primary"
-                    >
-                        <mat-icon aria-label="Example icon-button with a heart icon">edit</mat-icon>
-                    </button>
-                    <button
-                        mat-icon-button
-                        color="accent"
-                    >
-                        <mat-icon aria-label="Example icon-button with a heart icon">delete</mat-icon>
-                    </button>
+                <button mat-icon-button color="primary">
+                    <mat-icon aria-label="Example icon-button with a heart icon">edit</mat-icon>
+                </button>
+                <button mat-icon-button color="accent">
+                    <mat-icon aria-label="Example icon-button with a heart icon">delete</mat-icon>
+                </button>
             </td>
         </tr>
     </tbody>

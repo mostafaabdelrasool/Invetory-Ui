@@ -21,6 +21,9 @@ export class ProductOrderComponent implements OnInit {
     this.products$ = store.pipe(select(getProductsState))
   }
 
+  colors: string[] = ["yellow", "green"] ;
+  favoriteColor: string ='';
+
   ngOnInit() {
     this.load();
   }

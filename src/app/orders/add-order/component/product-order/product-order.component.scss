@@ -8,7 +8,7 @@
   }
   .example-radio-group {
     display: inline-flex;
-    flex-direction: column;
+   
   }
   
   .example-radio-button {
@@ -18,3 +18,19 @@
   .example-selected-value {
     margin: 15px 0;
   }
+  .example-radio-button{
+    width:35%
+  }
+  .mat-radio-button {
+    margin: 0 12px;
+  }
+  
+  .radio-button{
+    margin: 0px;
+  }
+  .submit-area{
+    margin: 1rem 0; 
+  }
+  .mat-btn-lg{
+    padding: 0.5rem 1rem;
+    }

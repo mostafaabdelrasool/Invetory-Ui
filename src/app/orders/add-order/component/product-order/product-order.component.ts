@@ -7,6 +7,8 @@ import { getProductsState } from 'src/app/product/store/selectors/product.select
 import { GenericActionTypes, GenericAction } from 'src/app/generic.store/actions/generic.actions';
 import { ReducerNames } from 'src/app/core/reducer.enum';
 import { OrderDetails } from 'src/app/model/order.model';
+import {FormBuilder, FormGroup} from '@angular/forms';
+
 
 @Component({
   selector: 'app-product-order',
@@ -17,11 +19,16 @@ export class ProductOrderComponent implements OnInit {
   products$: Observable<Products[]>;
   @Input() orderDetails: OrderDetails[] = new Array<OrderDetails>()
   @Input() orderDetailsChange = new EventEmitter<OrderDetails[]>()
-  constructor(public store: Store<EntityState<Products>>) {
+  options: FormGroup;
+  constructor(public store: Store<EntityState<Products>>, fb: FormBuilder) {
     this.products$ = store.pipe(select(getProductsState))
+    this.options = fb.group({
+      hideRequired: false,
+      floatLabel: 'auto',
+    });
   }
 
-  colors: string[] = ["yellow", "green"];
+  colors: string[] = ["yellow", "green", 'red'];
   favoriteColor: string = '';
 
   ngOnInit() {
@@ -40,5 +47,7 @@ export class ProductOrderComponent implements OnInit {
       productName: product.productName
     })
     this.orderDetailsChange.emit(this.orderDetails);
+  }
+  addProduct(){
   }
 }

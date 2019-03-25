@@ -14,7 +14,7 @@ import * as componet from './add-order/component/index';
     CommonModule,
     OrderRoutes, SharedModule,
     AngularMaterialModule,
-    FormsModule
+    FormsModule, ReactiveFormsModule
   ],
   declarations: [AddOrderComponent, OrdersListComponent,
     EditOrderComponent, componet.CustomerOrderComponent,componet.ProductOrderComponent]

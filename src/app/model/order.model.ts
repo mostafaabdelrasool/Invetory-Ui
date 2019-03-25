@@ -24,5 +24,8 @@ export interface OrderDetails{
         productName?: string,
         unitPrice: number,
         quantity: number,
-        discount?: number
+        discount?: number, 
+        size?: string,
+        notes?: string,
+        color?:string
 }
